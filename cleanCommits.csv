@@ -1,0 +1,5949 @@
+Name,Nickname,Date,Message
+Uladzimir Havenchyk,uladzimirdev,2024-05-01 01:33:46+00:00,Update codecov github action (#42034)
+Nemanja Glumac,nemanjaglumac,2024-05-01 03:05:44+00:00,Remove unused endpoint reference from the `services.js` (#42040)
+Alex Yarosh,alexyarosh,2024-05-01 04:07:10+00:00,note about default users (#42067)
+Alex Yarosh,alexyarosh,2024-05-01 04:08:58+00:00,"[docs] Update the slack channel settings (#42071)
+
+* update the option name
+
+* Update docs/configuring-metabase/slack.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Noah Moss,noahmoss,2024-05-01 04:24:24+00:00,Add docs link to perms email (#42004)
+Cam Saul,camsaul,2024-05-01 07:49:34+00:00,Add kondo hook so LSP can jump to driver definition (#41856)
+Cam Saul,camsaul,2024-05-01 10:24:17+00:00,"Fix Snowflake/Redshift filtering on date for timestamp with time zone columns (#41864)
+
+* Fix Snowflake filtering on date for `timestamp with time zone` columns
+
+* Snowflake should just generate raw SQL for literals
+
+* Go ahead and fix other Snowflake stuff and reenable a bunch of disabled tests
+
+* Snowflake test fixes :wrench:
+
+* Minor test improvements
+
+* Fix Redshift and Vertica as well.
+
+* Address PR feedback"
+Ngoc Khuat,qnkhuat,2024-05-01 14:34:17+00:00,Capture card's last_used_at (#41006)
+lbrdnk,lbrdnk,2024-05-01 15:07:06+00:00,Add cancelation exception for vertica (#42047)
+Romeo Van Snick,romeovs,2024-05-01 15:59:26+00:00,"Notebook text extraction shortcut (#41578)
+
+* Add shortcuts to suggestions
+
+* Add shortcuts group
+
+* Add split icon
+
+* Start implementing extract column modal
+
+* Pass alwaysExpanded from prop to accordion items
+
+* Allow disabling search on QueryColumnPicker
+
+* Only render columns that support extraction
+
+* Add columnExtractions helper to Lib
+
+* WIP
+
+* Add examples for column extraction
+
+* Use Lib.columnExtractions to create extraction picker
+
+* WIP: Create clause from extraction
+
+* Use mb- prefix in color
+
+* Add extract wrapper
+
+* Use updated column extraction types
+
+* WIP: extract clause
+
+* Use JSDoc for todo
+
+* Handle extract column submit in expression editor
+
+* Set name based on extract expression
+
+* Suffix column displayNames to avoid conflicts
+
+* Rename combine test to disambiguate it from extract test
+
+* Add e2e test for column extractions
+
+* Correctly render button as button
+
+* Add tests for email extractions
+
+* Use correct font in expression button
+
+* Remove error when selecting an extraction
+
+* Use last expression
+
+* Use handleExpressionChange
+
+* Add tests for url extractions
+
+* Rename to lastExpression
+
+* Add issue link to the todo
+
+* Move Button into ExtractColumn
+
+* Use unstyled button for ExtractColumnButton"
+Anton Kulyk,kulyk,2024-05-01 17:26:28+00:00,Fix flaky dashboard subscription test (#42051)
+Anton Kulyk,kulyk,2024-05-01 17:35:23+00:00,Fix flaky dashboard repro tests (issue 39863) (#42046)
+Braden Shepherdson,bshepherdson,2024-05-01 19:53:03+00:00,"[QP, lib] Allow multiple arguments to `:contains`, `:starts-with`, etc. (#41958)
+
+These string matching clauses only allowed two arguments previously.
+Typically `[:contains field x]` to match a field against a literal.
+
+This adds similar desugaring for `:contains`, `:does-not-contain`,
+`:starts-with` and `:ends-with` that is currently done for
+multi-argument `:=` and `:!=`:
+
+```clojure
+[:contains field x y z] ;; ->
+[:or [:contains field x] [:contains field y] [:contains field z]]
+
+[:does-not-contain field x y z] ;; ->
+[:and [:does-not-contain field x]
+      [:does-not-contain field y]
+      [:does-not-contain field z]]
+```"
+lbrdnk,lbrdnk,2024-05-01 22:14:00+00:00,"Add string like filtering capabilities to filter widget (#42065)
+
+* Add string like filtering capabilities to filter widget
+
+* Address the review suggestions
+
+* Add e2e test
+
+* Address review suggestions
+
+* Update mongo e2e test id so it hopefully corresponds to CI data
+
+* Update e2e test to use id gathered from actual data
+
+* Expand and improve the E2E reproduction
+
+* Explicitly reference the underlying issues we're reproducing
+
+* Update frontend/src/metabase/querying/components/FilterPicker/FilterPickerBody/FilterPickerBody.tsx
+
+Co-authored-by: Nemanja Glumac <31325167+nemanjaglumac@users.noreply.github.com>
+
+* Fix parens
+
+---------
+
+Co-authored-by: Nemanja <31325167+nemanjaglumac@users.noreply.github.com>"
+Romeo Van Snick,romeovs,2024-05-01 23:22:11+00:00,"Combine columns (#42021)
+
+* [MLv2] Add `preview-expression` to eval an expression on sample data
+
+This is needed to show the previews in the UX for the combining columns
+epic #39977.
+
+Fixes #39979.
+
+* [MBQL lib] Add ""Combine columns"" drill-thru
+
+This is following the original plan of using a drill for this. It's hard
+to combine that with the ""preview"" functionality.
+
+See [thread](https://metaboat.slack.com/archives/C06P22KS4JH/p1712264174056569)
+for discussion of how we might approach that issue.
+
+Fixes #39978.
+
+* [MBQL lib] Add ""Combine columns"" drill-thru
+
+This is following the original plan of using a drill for this. It's hard
+to combine that with the ""preview"" functionality.
+
+See [thread](https://metaboat.slack.com/archives/C06P22KS4JH/p1712264174056569)
+for discussion of how we might approach that issue.
+
+Fixes #39978.
+
+* [MLv2] Add `preview-expression` to eval an expression on sample data
+
+This is needed to show the previews in the UX for the combining columns
+epic #39977.
+
+Fixes #39979.
+
+* [MLv2] Add `preview-expression` to eval an expression on sample data
+
+This is needed to show the previews in the UX for the combining columns
+epic #39977.
+
+Fixes #39979.
+
+* Revert ""Merge branch 'mblib-preview-expressions' into combine-columns""
+
+This reverts commit dac17f84aaae09906a206106290f7f58dea659bd, reversing
+changes made to 2934fab19db495ca8104801d41bc8aba457e401f.
+
+* Revert ""Merge branch 'mblib-preview-expressions' into combine-columns""
+
+This reverts commit 2934fab19db495ca8104801d41bc8aba457e401f, reversing
+changes made to 6a43c22e78fb616c7ac0b024811b2989a1ae0f20.
+
+* Revert ""Merge branch 'mblib-preview-expressions' into combine-columns""
+
+This reverts commit 6a43c22e78fb616c7ac0b024811b2989a1ae0f20, reversing
+changes made to 2257333a8ae69f0c9a6f6fdf0c8f5d837263f97a.
+
+* [FE] ""Combine columns"" drill thru (#40082)
+
+* Type Section['icon'] properly, including the hack for summarize section
+
+* Add combine columns section
+
+* Add types for combine columns drill
+
+* Add combine columns drill component stub
+
+* Mock combine columns drill
+
+* Add component stub
+
+* Encapsulate typing hacks
+
+* Extract CombineColumnsDrill
+
+* Extract ColumnAndSeparatorRow
+
+* Improve naming, add button to edit separators
+
+* Translate string
+
+* Improve styling
+
+* Separator input
+
+* Handle removing columns
+
+* Rename lib.ts to utils.ts
+
+* Implement onSubmit
+
+* Add getNextColumnAndSeparator
+
+* Use form for a11y
+
+* Handle vertical overflow
+
+* Handle horizontal overflow
+
+* Extract formatSeparator
+
+* Use proper translations
+
+* Adjust min/max sizes
+
+* Fix scrollbar being unnecessarily shown
+
+* Display source column name
+
+* Avoid serializing the entire column and putting it into DOM
+
+* Use module.css extension
+
+* Format code
+
+* Improve a11y
+
+* Mock combineColumnsDrillExpression and previewExpression
+
+* Add Preview component
+
+* Move preview logic to Preview component
+
+* Style Preview
+
+* Format code
+
+* Move styles to CSS modules
+
+* Update UI to latest designs
+- move ""Add another column"" button
+- remove ""Separated by X"" button
+- always show separator inputs
+
+* Remove displayInfo mock
+
+* Add asReturned
+
+* Update CombineColumnsDrillThruInfo
+
+* Integrate new way of working with combine columns drill
+
+* Fix generating expression names
+
+* Integrate drill with click actions
+
+* Integrate new preview workflow
+
+* Revert ""Update UI to latest designs""
+
+This reverts commit cda039dffe9d452c0866f63800e2e887a540fe67.
+
+* Use previewExpression interface correctly
+
+* Use new preview_expression API
+
+* Make sure columns are created with original query and stage index
+
+* Extract usePreview and handle preview errors
+
+* Update popover title
+
+* Move add column button
+
+* Fix outline being cut off
+
+* Style preview label as per design
+
+* Format empty separator
+
+* Make preview scrollable
+
+* Use project convention
+
+* Simplify ScrollArea usage
+
+* Use ScrollArea in CombineColumnsDrill
+
+* Update comment
+
+* Remove Lib.previewExpression
+
+* Clean up the preview after removing Lib.previewExpression
+
+* Implement getPreview
+
+* Change default column preview to 'text'
+
+* Remove usePreview hook which is no longer in use
+
+* Rename Preview to Example
+
+* Use different placeholder for separator input
+
+* Add whitespace placeholder
+
+* Add ColumnPicker boilerplate
+
+* Export Input
+
+* Use QueryColumnPicker for ColumnPicker
+
+* Pass width to AccordionList
+
+* Add sequences popover events with tippy
+
+* Remove unused ColumnOption helpers
+
+* Add testid to Example
+
+* Add e2e test for combine column in header
+
+* Select content of separator input on focus
+
+* Reduce padding on example
+
+* Add monospace variant to Text
+
+* Use monospace variant in Example
+
+* Use monospace font in textinput
+
+* Match faux-select label styles to our TextInput label styles
+
+* Add missing color
+
+* Remove !important
+
+* Use pre whitespace so consecutive spaces show up
+
+* Remove empty default
+
+* Add example for boolean
+
+* Remove !important
+
+* Use should.have text over contain
+
+---------
+
+Co-authored-by: Romeo Van Snick <romeo@romeovansnick.be>
+
+* Remove duplicated code
+
+* Export useMantineTheme from metabase/ui
+
+* Use useMantineTheme instead of reading theme directly
+
+* Remove setTimeout in popover
+
+* Use plain t instead of jt
+
+* Move Popover dropdown sequence hack to metabase/ui
+
+---------
+
+Co-authored-by: Braden Shepherdson <braden@metabase.com>
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Uladzimir Havenchyk,uladzimirdev,2024-05-02 01:51:20+00:00,Drop unused isDashboardParameterWithoutMapping function (#42103)
+Alex Yarosh,alexyarosh,2024-05-02 04:21:27+00:00,"[docs] use SSO for MFA (#42084)
+
+* mfa
+
+* plans"
+Alex Yarosh,alexyarosh,2024-05-02 04:23:19+00:00,surface dashboard width in toc (#42083)
+Alex Yarosh,alexyarosh,2024-05-02 04:24:40+00:00,"[docs] Add ""check table visibility"" to troubleshooting guide (#42072)
+
+* check visibility
+
+* more precise
+
+* Update docs/troubleshooting-guide/cant-see-tables.md"
+Alex Yarosh,alexyarosh,2024-05-02 04:24:57+00:00,cast (#42064)
+Alex Yarosh,alexyarosh,2024-05-02 04:25:14+00:00,"[docs] Custom destinations in static embedding (#42080)
+
+* custom destinations in static embedding
+
+* Update docs/embedding/static-embedding.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Alex Yarosh,alexyarosh,2024-05-02 04:28:26+00:00,"[docs] Use SQL questions as sources for other questions (#42077)
+
+* sql questions
+
+* Update docs/questions/native-editor/writing-sql.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* Update docs/questions/native-editor/writing-sql.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Aleksandr Lesnenko,alxnddr,2024-05-02 04:35:27+00:00,"support unpinning line charts from zero, pinning scatter charts to zero (#41672)"
+Phoomparin Mano,heypoom,2024-05-02 16:31:16+00:00,"Expose theme property to metabase provider in embedding SDK (#42050)
+
+* expose theme property in MetabaseProvider
+
+* add more descriptions on what the theme overrides are for"
+Uladzimir Havenchyk,uladzimirdev,2024-05-02 16:57:01+00:00,Fix typo in the file name (#42102)
+Ngoc Khuat,qnkhuat,2024-05-02 17:54:14+00:00,"Comment out failing snowflake test sync-dynamic-tables-test (#42145)
+
+* Comment out failing snowflake test sync-dynamic-tables-test
+
+* unrelated indent"
+lbrdnk,lbrdnk,2024-05-02 19:07:39+00:00,Skip flaky test (#42120)
+Ngoc Khuat,qnkhuat,2024-05-02 19:15:53+00:00,Fix mongo OOM during sync (#42140)
+Nemanja Glumac,nemanjaglumac,2024-05-02 20:02:00+00:00,Fix/update the hard coded `description` fields in containers action (#42149)
+Phoomparin Mano,heypoom,2024-05-02 20:59:25+00:00,"Verify Metabase's theme is merged with user-supplied theme overrides (#42142)
+
+* ensures metabase theme override is merged with user-supplied theme
+
+* ensure both metabase and user themes are merged
+
+* ensure existing theme override is applied
+
+* add tests for default text colors"
+Nemanja Glumac,nemanjaglumac,2024-05-02 21:11:27+00:00,Enable Mongo tests to run in the stress-test action (#42162)
+Nick Fitzpatrick,npfitz,2024-05-02 21:17:51+00:00,"41994 command pallet search descriptions (#42117)
+
+* Adding Descriptions to search results in palette
+
+* Palette Results List component
+
+* adjusting e2e and unit tests
+
+* type fix
+
+* removing duplicate theme font
+
+* fix typo, palette types adjustment"
+Phoomparin Mano,heypoom,2024-05-02 22:39:07+00:00,"Apply mantine color palette to cartesian chart labels (#42148)
+
+* use palette for rendering
+
+* add unit tests for chart label colors
+
+* cleanup test code
+
+* update unit test name
+
+* cleanup color handler
+
+* use theme.fn.themeColor to get color"
+Nemanja Glumac,nemanjaglumac,2024-05-02 23:23:05+00:00,"Fix E2E Repro #42065 failure (#42161)
+
+* Explicitly wait for the result to load
+
+* Remove the drill-through part from the repro"
+Abed Habli,abdhabli,2024-05-03 00:55:48+00:00,[docs] Add Pathway for Email Settings Configuration (#42091)
+Jeff Bruemmer,jeff-bruemmer,2024-05-03 01:39:07+00:00,add 49.8 to list of releases (#42174)
+Nick Fitzpatrick,npfitz,2024-05-03 01:40:42+00:00,"42078 palette search links (#42167)
+
+* Items as links
+
+* unit tests"
+Alex Yarosh,alexyarosh,2024-05-03 01:56:00+00:00,remove trailing slash (#42177)
+Romeo Van Snick,romeovs,2024-05-03 02:14:09+00:00,"Add analytics event for extract column in chill mode (#41774)
+
+* Add trackColumnExtractViaHeader helper
+
+* Add Lib.extract wrapper
+
+* Track column extractions via header
+
+* Fix analytics event name
+
+* Add tests for extract action analytics
+
+* Set up extractions metadata helper
+
+* Use functionsUseByExtraction in analytics
+
+* Add custom type for ExtractionTag
+
+* Use ExtractionTag in analytics
+
+* [MBQL lib] Add `Lib.columnExtractDrillExtractions`
+
+This gets the extractions from a column-extract drill, which is needed
+in the UI.
+
+* Add extractionExpression wrapper
+
+* Add extractionsForDrill helper
+
+* Fix type signature of extractionExpression
+
+* Use expressionParts for getting expression function
+
+* Walk expression to get functions used
+
+* Simplify ColumnExtractionTag
+
+* Fix expected expression
+
+* Be more explicit with what the guard does
+
+---------
+
+Co-authored-by: Braden Shepherdson <braden@metabase.com>"
+Alex Yarosh,alexyarosh,2024-05-03 03:03:05+00:00,"[docs] Add TOC to a few articles (#42181)
+
+* add TOC to Jetty article
+
+* add ToC for debian article
+
+* vvariables
+
+* Update docs/installation-and-operation/running-metabase-on-debian.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Noah Moss,noahmoss,2024-05-03 03:03:32+00:00,"Optimize loading of admin permissions pages (add skip_fields flag to database metadata endpoint) (#42062)
+
+* add skip_fields flag to database metadata endpoint
+
+* skips loading fields on database metadata requests while on admin permissions pages
+
+---------
+
+Co-authored-by: Sloan Sparger <sloansparger@gmail.com>"
+Uladzimir Havenchyk,uladzimirdev,2024-05-03 03:40:41+00:00,Restore mapping and filter settings when user switches operator type to the saved (#42076)
+Braden Shepherdson,bshepherdson,2024-05-03 04:03:33+00:00,"[QP] Support `:temporal-unit` parameters on MBQL queries (#42116)
+
+This is a new parameter `:type` (and `:widget-type`) to choose a time
+granularity (a `:temporal-unit`, eg. `month`, `day`, `day-of-week`)
+which should replace the unit on the target field for the parameter.
+
+The target field should be a breakout with a temporal type (date,
+datetime) that's compatible with the input unit. The value of the
+parameter should be a string or keyword naming one of the units:
+`""month""`, `:month`.
+
+Part of #42118."
+Uladzimir Havenchyk,uladzimirdev,2024-05-03 04:23:21+00:00,"Cleanup parameters popover (#42107)
+
+* Cleanup parameters popover
+
+* Convert to ts
+
+* Drop comment
+
+* Convert dashboard-options to TS"
+Jeff Bruemmer,jeff-bruemmer,2024-05-03 05:13:42+00:00,docs -  generate environment variables (#41802)
+Cam Saul,camsaul,2024-05-03 07:50:45+00:00,"Window functions should use all breakouts except first for partitioning (#42131)
+
+* Window functions should use all breakouts except first for partitioning
+
+* Update the offset() test
+
+* Update tests
+
+* Rework how we use driver escape-alias in MLv2; fix Oracle
+
+* PR feedback
+
+* Test fixes :wrench:"
+Cam Saul,camsaul,2024-05-03 07:54:20+00:00,"Fix LegacyMetric/Segment macroexpansion with definitions using ancient MBQL (#42087)
+
+* Fix LgeacyMetric/Segment macroexpansion with definitions using ancient MBQL 2
+
+* Remove stray println
+
+* PR feedback"
+Aleksandr Lesnenko,alxnddr,2024-05-03 09:12:08+00:00,fix replace missing values with zeros on time series (#42058)
+Cam Saul,camsaul,2024-05-03 12:41:07+00:00,"MLv2: Simplify MetadataProvider protocols (16 methods/3 protocols => 7 methods/2 protocols) (#42070)
+
+* Simplified MetadataProvider protocol
+
+* Test fix
+
+* Ok make CachedMetadataProvider a separate schema again after all.
+
+* Consolidate the Metadata schemas
+
+* Clean Kondo warnings
+
+* Malli-ify the stuff in metabase.lib.metadata.protocols
+
+* Fix Kondo warnings
+
+* Test fix :wrench:
+
+* PR feedback"
+Romeo Van Snick,romeovs,2024-05-03 13:48:28+00:00,"Add tests for url and email columns (#42144)
+
+* Add test for email extractions
+
+* Fix swapped domain and host examples
+
+* Add tests for URL columns
+
+* Fix examples for shortcut too
+
+* Use arrow function instead of function"
+Phoomparin Mano,heypoom,2024-05-03 14:35:46+00:00,remove chart root padding when in embedding environment (#42164)
+Romeo Van Snick,romeovs,2024-05-03 17:00:09+00:00,Fix broken test in drill extraction (#42202)
+Romeo Van Snick,romeovs,2024-05-03 18:40:52+00:00,"Snowplow event for extract action via notebook shortcut (#42095)
+
+* Add helper to track column extractions
+
+* Track column extractions
+
+* Add text for column extraction
+
+* Pass correct extraction to trackColumnExtractViaShortcut"
+Romeo Van Snick,romeovs,2024-05-03 18:41:13+00:00,"Add snowplow event for combining columns via chill mode header (#42173)
+
+* Add snowplow event for column combine via header
+
+* Add test for snowplow event
+
+* Remove unnecessary within wrapper
+
+* Fix linting issues"
+Braden Shepherdson,bshepherdson,2024-05-03 19:42:34+00:00,"Add a few tests for time granularity parameters (#42119)
+
+The API/model schemas for dashboard parameters are general enough
+that they just work for this new type, which doesn't look very different
+from a value parameter right now.
+
+Part of #42118."
+Ngoc Khuat,qnkhuat,2024-05-03 19:47:34+00:00,Fix Bigquery can't sync materialized views (#42092)
+Raphael Krut-Landau,rafpaf,2024-05-03 21:42:59+00:00,"Enable customization of columns in ItemsTable (#41777)
+
+Lets the `ItemsTable` component have customizable columns.
+
+The logic for this is contained in `BaseItemsTable`. This is preliminary work for #41614
+
+This doesn't introduce any new UI, but there is a unit test for the new logic.
+
+The main thing to check is whether the table on the collections page stills work correctly. Note how the columns adjust as you resize the viewport horizontally. (In fact, the columns will sometimes adjust as you close and open the sidebar, because the width they are paying attention to is the width of the area to the right of the sidebar.)
+
+Closes #41908"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-03 22:03:28+00:00,"Fix InteractiveQuestion loader show no question before loaded (#42208)
+
+* Fix InteractiveQuestion loader show no question before loaded
+
+* Add tests
+
+* Unskip a test"
+Anton Kulyk,kulyk,2024-05-03 22:33:23+00:00,"Add viz settings to manage line style and thickness to line/area charts (#42043)
+
+* Rename ""Line style"" to ""Line shape""
+
+* Add ""line.style"" viz setting
+
+* Add ""line.size"" viz setting
+
+* Apply new viz settings in line/area charts
+
+* Clean up `ChartSettings` test suite
+
+* Fix default values not applied
+
+* Add visual test
+
+* Add E2E test
+
+* Rework default values
+
+* Use constant S/M/L values for ""line.size"" setting"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-03 22:52:56+00:00,"Update readme adding more ways to run Metabase (#42217)
+
+* Update readme adding more ways to run Metabase
+
+* Remove running from `master` because it could break
+
+* Update enterprise/frontend/src/embedding-sdk/README.md
+
+Co-authored-by: Alberto Perdomo <albertoperdomo@users.noreply.github.com>
+
+* Update disclaimer, makes it more obvious
+
+---------
+
+Co-authored-by: Alberto Perdomo <albertoperdomo@users.noreply.github.com>"
+Nicolò Pretto,npretto,2024-05-03 23:39:25+00:00,"Embed homepage, MS4 (#41990)
+
+* use css modules instead of inline styles for cursor: default (#41644)
+
+* add toast notification after the feedback (#41575)
+
+* fix modal submit sending data while button says skip (#41784)
+
+* fix: it should not send the feedback if button says skip
+
+* add comment explaining why we check that getLastFeedbackCall() is undefined
+
+* embedding homepage analytics (#41725)
+
+* rename defaultTab -> initialTab
+
+* add events schema for embedding-homepage
+
+* fix stories
+
+* add analytics, e2e tests and fix typo in dismiss reason
+
+* copy embed_flow schema for better diff in the next commit
+
+* adds isExampleDashboard to trackStaticEmbedPublished
+
+* utm tags
+
+* fix bug of is_example_dashboard
+
+* better test names
+
+* refactor embed homepage status type
+
+* ""() => {}"" => ""_.noop""
+
+* add ""Setup embedding"" to the admin setup checklist (#41638)
+
+* add setup embedding to the admin setup checklist
+
+* restore whitespace as it was before
+
+* i miss prettier (whitespace again)
+
+* Clean up check list for embedding
+
+Largely making a new entry for the embedding info just to fight long
+lines. `:embedding-homepage-dismissed-as-done` just made the maps really
+long. If we have a `:done?` under an `:embedding` keyword it reads much
+more naturally.
+
+Also, The previous diff was calling `boolean` on a var rather than
+invoking the var:
+
+```clojure
+:embedding-app-origin (boolean embed.settings/embedding-app-origin)
+;;                             ^^^^^^^^^^^^^^ needs to be (invoked)
+```
+
+---------
+
+Co-authored-by: dan sutton <dan@dpsutton.com>
+
+* Change utm tags for embedding homepage links (#42042)
+
+* update utm tags
+
+* utm_media -> utm_content
+
+* add description to the checklist setup step (#42200)
+
+---------
+
+Co-authored-by: dan sutton <dan@dpsutton.com>"
+Phoomparin Mano,heypoom,2024-05-04 00:12:15+00:00,"Define public metabase theme and Mantine transformer for embedding SDK (#42207)
+
+* public metabase theme type
+
+* add tests for transforming embedding theme
+
+* export public types
+
+* load transformed theme override into theme provider
+
+* migrate font family inside theme configuration
+
+* add assertion for font family
+
+* update README to add font family in theme options
+
+* add font enum, fix tuple type and cleanup tests
+
+* color tuple argument name
+
+* use fill for colortuple"
+Alex Yarosh,alexyarosh,2024-05-04 00:30:21+00:00,"[docs] A bit more details about API (#42137)
+
+* api details
+
+* Update docs/installation-and-operation/serialization.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Jeff Bruemmer,jeff-bruemmer,2024-05-04 00:43:20+00:00,docs - update filter docs (#42169)
+Uladzimir Havenchyk,uladzimirdev,2024-05-04 00:51:26+00:00,Adjust styles of the single active tab in parameter sidebar (#42209)
+Vamsi Peri,perivamsi,2024-05-04 01:10:22+00:00,"Update feature_request.md (#42232)
+
+Remove the language for how important is this feature to you"
+John Swanson,johnswanson,2024-05-04 03:50:24+00:00,"Add `can_write` to /collection/:id/items (#42184)
+
+For dashboards and cards/models only."
+bryan,escherize,2024-05-04 09:44:00+00:00,fix a regex validation (#42251)
+lbrdnk,lbrdnk,2024-05-05 21:01:53+00:00,Add new Druid JDBC driver (#40293)
+Cal Herries,calherries,2024-05-06 15:04:54+00:00,Use database-supports? instead of hard-coded driver in `dataset-with-custom-pk-test` (#42224)
+Abed Habli,abdhabli,2024-05-06 19:05:57+00:00,"Added Key Authentication Option to SSH Tunneling Docs (#42206)
+
+* Update ssh-tunnel.md
+
+Add SSH key authentication option to SSH tunneling docs
+
+* Update docs/databases/ssh-tunnel.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* Update docs/databases/ssh-tunnel.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* Update docs/databases/ssh-tunnel.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Alexander Polyankin,ranquild,2024-05-06 19:32:26+00:00,Fix wrapping in QueryColumnPicker (#42246)
+Jeff Bruemmer,jeff-bruemmer,2024-05-07 01:10:41+00:00,docs - field type metadata (#41223)
+John Swanson,johnswanson,2024-05-07 01:22:52+00:00,Add `can_write` to cards/dashboards in Search (#42276)
+Emmad Usmani,EmmadUsmani,2024-05-07 01:48:07+00:00,"add percent change to timeseries tooltip (#42059)
+
+* add percent change to timeseries tooltip
+
+* move computeChange to lib/numeric
+
+* cleaning up code in numeric.js
+
+* color text
+
+* add unit to key
+
+* move change to tooltip footer
+
+* fix extra bottom spacing
+
+* remove color
+
+* handle gaps in data
+
+* clean up code
+
+* add change to funnel tooltip
+
+* move retained to footer in funnel
+
+* update copy
+
+* remove min decimal count
+
+* rename events.tsx -> events.ts
+
+* add test cases to line-bar-tooltips.cy.spec.js
+
+* add specs for edge cases
+
+* readd exports to fix numeric.unit.spec.js
+
+* don't show for change for scatterplot
+
+* translate retained
+
+* use parseTimestamp instead of String
+
+* handle quarter interval
+
+* remove redundant dayjs calls
+
+* handle quarter with Feburary correctly"
+Uladzimir Havenchyk,uladzimirdev,2024-05-07 01:48:45+00:00,Improve types for ParameterSettings (#42269)
+bryan,escherize,2024-05-07 02:18:16+00:00,adds diagnostic info to troubleshooting (#42283)
+bryan,escherize,2024-05-07 02:22:41+00:00,new version fixes saml20 issues (#42286)
+Aleksandr Lesnenko,alxnddr,2024-05-07 02:23:56+00:00,"Fix x-axis time series interval computation when x-values include nulls (#42292)
+
+* add chart model logging
+
+* fix x-axis time series interval computation when x-values include nulls"
+Ryan Laurie,iethree,2024-05-07 04:53:25+00:00,"Make bulk action bar reusable (#42296)
+
+* Make bulk action bar reusable
+
+* unify bulk action usage
+
+* skip obsolete test"
+Ryan Laurie,iethree,2024-05-07 05:50:29+00:00,"Entity picker/new search item component (#42009)
+
+* add new entity picker result item
+
+* simplify types
+
+* enterprise icon fixes
+
+* unit test fixes
+
+* design updates
+
+* address PR comments
+
+* remove poorly implemented tooltip
+
+* fix unit test
+
+* simplify spinner situation"
+Aleksandr Lesnenko,alxnddr,2024-05-07 06:48:08+00:00,fix tooltip shows data for different X value (#42299)
+Ryan Laurie,iethree,2024-05-07 06:58:08+00:00,"Basic Table Component (+ use it for API Keys) (#42287)
+
+* add basic table component
+
+* use basic table in api keys UI
+
+* tweak padding
+
+* replace test id
+
+* update e2e test ids"
+Tim Macdonald,tsmacdonald,2024-05-07 14:26:57+00:00,"Remove unusued code paths for automagic filtering (#42098)
+
+* Remove unusued code paths for automagic filtering
+
+All the way from 2018!
+
+* Use pre-computed value"
+Ngoc Khuat,qnkhuat,2024-05-07 14:30:02+00:00,Send pulses in parallel (#41772)
+Romeo Van Snick,romeovs,2024-05-07 15:47:39+00:00,"Fix combine extract column drill icons (#42297)
+
+* Use extract column icon for column extraction drill thru
+
+* Use combine column icon for column combine drill thru"
+Ngoc Khuat,qnkhuat,2024-05-07 19:17:23+00:00,fix sync dynamic table (#42312)
+Kamil Mielnik,kamilmielnik,2024-05-07 19:50:30+00:00,"Remove snippets from search types (#42315)
+
+* Remove snippets in search models
+- They're not supported, see model-to-db-model in search/config.clj
+
+* Fix TS error
+
+* Fix TS error"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-07 21:24:02+00:00,"Update the README to document some SDK quirks (#42332)
+
+* Update the README to document some SDK quirks
+
+* Address review"
+Aleksandr Lesnenko,alxnddr,2024-05-07 21:53:21+00:00,add chart logging own env var (#42334)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-07 22:04:00+00:00,Fix Embedding SDK calling admin endpoint (#42327)
+dpsutton,dpsutton,2024-05-07 22:21:16+00:00,"Silence `abs` warning on startup (#42311)
+
+before:
+
+```clojure
+❯ clj -M:""$ALIASES""
+Warning: environ value /Users/dan/.sdkman/candidates/java/current for key :java-home has been overwritten with /Users/dan/.sdkman/candidates/java/21.0.2-tem
+WARNING: abs already refers to: #'clojure.core/abs in namespace: clojure.algo.generic.math-functions, being replaced by: #'clojure.algo.generic.math-functions/abs
+2024-05-07 04:39:37,890 INFO metabase.util :: Maximum memory available to JVM: 8.0 GB
+```
+
+after:
+
+```clojure
+❯ clj -M:""$ALIASES""
+Warning: environ value /Users/dan/.sdkman/candidates/java/current for key :java-home has been overwritten with /Users/dan/.sdkman/candidates/java/21.0.2-tem
+2024-05-07 04:40:42,561 INFO metabase.util :: Maximum memory available to JVM: 8.0 GB
+```
+
+Now no warning about `abs`"
+Nick Fitzpatrick,npfitz,2024-05-07 22:51:07+00:00,"41901 command palette search view all (#42179)
+
+* initial attempt
+
+* search button
+
+* small adjustments
+
+* adding back the search bar
+
+* adding an extra check in e2e
+
+* i18n adjustment
+
+* impls pr feedback
+
+---------
+
+Co-authored-by: Sloan Sparger <sloansparger@gmail.com>"
+Romeo Van Snick,romeovs,2024-05-07 23:00:32+00:00,"Allow duplicate ""combine column"" columns in chill mode (#42314)
+
+* Add suffix to name if column already exists
+
+* Add test for duplicate combine columns
+
+* Use direct question in test
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+* Fix formatting
+
+* Use createQuestion for other tests too
+
+* Fix table references
+
+---------
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Cam Saul,camsaul,2024-05-08 02:04:31+00:00,"Only nest expressions referenced in breakouts or aggregations (#42302)
+
+* Only nest expressions referenced in breakouts or aggregations
+
+* Test fixes :wrench:
+
+* Oracle test update
+
+* Improved Oracle test"
+Ryan Laurie,iethree,2024-05-08 02:53:09+00:00,"Make Z-indexes a bit more sane (#42272)
+
+* Add back entity picker search item tooltip
+
+This reverts commit 7fbf839e415f717633e223c34600655ca2865181.
+
+* make z-indexes a bit more sane
+
+* fix rebase"
+Cam Saul,camsaul,2024-05-08 03:05:27+00:00,"Support `Offset()` as an expression with no breakouts [backend] (#42132)
+
+* Only nest expressions referenced in breakouts or aggregations
+
+* Support Offset() as expression with no breakouts
+
+* Test fixes :wrench:
+
+* Oracle test update
+
+* Improved Oracle test
+
+* Test update :wrench:
+
+* Fix busted test
+
+* Fix running and saving Offset over the REST API
+
+* Remove stray :wow
+
+* More test fixes :wrench:"
+Cam Saul,camsaul,2024-05-08 03:09:48+00:00,"Don't optimize temporal filters with unbucketed exprs against relative datetimes (#42310)
+
+* Don't optimize [:between <expr w/ :default bucketing> <relative-datetime> ...] filters
+
+* Update tests :wrench:"
+Alexander Solovyov,piranha,2024-05-08 13:51:24+00:00,Backfill QueryField on Metabase startup (#42279)
+Nemanja Glumac,nemanjaglumac,2024-05-08 14:07:55+00:00,Allow multiple values for string operators in the query builder (#42101)
+Ngoc Khuat,qnkhuat,2024-05-08 14:30:23+00:00,Fix failed to upgrade when instances have obsolete 3rd party drivers (#42369)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-08 14:55:13+00:00,Bump published SDK version (#42340)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-08 16:17:15+00:00,Simplify code (#42374)
+Cal Herries,calherries,2024-05-08 16:56:31+00:00,Increment view_count on card and dashboard views (#41882)
+Chris Truter,crisptrutski,2024-05-08 17:52:44+00:00,Remove trailing slash from API route (#42320)
+Abed Habli,abdhabli,2024-05-08 18:09:30+00:00,"[docs] Updating table settings  (#42324)
+
+* updating the first section
+
+* updating the column header formatting screenshot
+
+* Typo
+
+* Update docs/questions/sharing/visualizations/table.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* Update docs/questions/sharing/visualizations/table.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Nemanja Glumac,nemanjaglumac,2024-05-08 19:36:54+00:00,Remove unused `useNativeQuery` util (#42384)
+dpsutton,dpsutton,2024-05-08 20:26:28+00:00,"bump methodical (#42361)
+
+now:
+
+```clojure
+❯ clj -M:""$ALIASES""
+Warning: environ value /Users/dan/.sdkman/candidates/java/current for key :java-home has been overwritten with /Users/dan/.sdkman/candidates/java/21.0.2-tem
+2024-05-07 19:55:25,167 INFO metabase.util :: Maximum memory available to JVM: 8.0 GB
+```
+
+no logs about recur targets unboxing"
+Phoomparin Mano,heypoom,2024-05-08 21:18:29+00:00,"Option to customize base font size in React embedding (#42322)
+
+* allow customizable base font size
+
+* pass in fontSize in mantine theme
+
+* only apply font size if it exists"
+Uladzimir Havenchyk,uladzimirdev,2024-05-08 21:28:46+00:00,Do not allow cy.pause() to go into commit (#42387)
+Uladzimir Havenchyk,uladzimirdev,2024-05-08 21:32:04+00:00,Fix overflow problem in Filter Modal sidebar (#42386)
+Jeff Bruemmer,jeff-bruemmer,2024-05-08 21:39:53+00:00,docs - fix broken link (#42391)
+Nicolò Pretto,npretto,2024-05-08 21:44:51+00:00,"attempt to type the return value of actions created by createThunkAction (#42328)
+
+* attempt to type the return value of actions created by createThunkAction
+
+* use built in Awaited instead of custom AwaitedIfPromise"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-08 22:31:14+00:00,"Support custom font in SDK (#42342)
+
+* Support custom font in SDK
+
+* Update component after merging master"
+Raphael Krut-Landau,rafpaf,2024-05-08 22:36:51+00:00,"Port CollapseSection to ts (#42333)
+
+Co-authored-by: Ryan Laurie <iethree@gmail.com>"
+Ryan Laurie,iethree,2024-05-09 00:46:56+00:00,Fix flaky frontend question unit test (#42412)
+adam-james,adam-james-v,2024-05-09 00:54:17+00:00,"Dashboard Param Values Common Impl for Embedding/Preview Embedding (#42052)
+
+* Dashboard Param Values Common Impl for Embedding/Preview Embedding
+
+Refactor the embedding api namespace to allow a bit of reuse between the embedding api and the embedding preview
+api. In some cases, the implementations are not identical (in terms of the shape of data expected/endpoints
+available), so this is a first step to making them the same.
+
+Related:
+
+https://www.notion.so/metabase/Make-embedding-preview-behave-consistently-with-actual-static-embeds-855353d8e5e8411d8164c7ac563c7d2f
+
+* Add a test to verify that preview-embed param-values endpoint works
+
+* Use preview embed endpoint and fix relevant tests
+
+* Add tests
+
+* Change name to reflect what actually happens in the function
+
+---------
+
+Co-authored-by: Mahatthana Nomsawadi <mahatthana.n@gmail.com>"
+Phoomparin Mano,heypoom,2024-05-09 01:18:58+00:00,"Reserve component height with defaults from visualization type in embedded questions (#42212)
+
+* prop to reserve height and use full height by default
+
+* require height to be passed
+
+* add default height based on viz type
+
+* default to 250px
+
+* reserve table height
+
+* remove memoization
+
+* rely on the card size defaults constant
+
+* multiply by a fixed constant
+
+* correct vis to viz"
+Noah Moss,noahmoss,2024-05-09 03:14:17+00:00,Allow disabling health check logging via env var (#42357)
+Cam Saul,camsaul,2024-05-09 03:16:40+00:00,"Cam's module linter 5000 (#42250)
+
+* Cam's module linter 5000
+
+* Get Kondo passing
+
+* Revert changes to usage of mdb.setup/setup-db!
+
+* Check ns shapes
+
+* Add ns :require shape linter; PR feedback
+
+* Linter fixes :wrench:"
+Ryan Laurie,iethree,2024-05-09 03:18:26+00:00,Fix another flaky question picker unit test (#42421)
+bryan,escherize,2024-05-09 03:52:44+00:00,"convert `SocketChannelEndpoint` to `SocketChannel` (#42419)
+
+* convert `SocketChannelEndpoint` to `SocketChannel`
+
+* Remove fatal logging (used for debugging)
+
+* check for nil channel + log on unknown type
+
+* only log unexpected transport types once"
+Raphael Krut-Landau,rafpaf,2024-05-09 05:08:54+00:00,"Add table of models to the ""Browse models"" page (#41954)"
+bryan,escherize,2024-05-09 05:53:26+00:00,"adds the new `watch` alias, which reloads BE on file changes (#42371)
+
+* adds watch alias, which reloads BE on file changes
+
+* watch dev, src, test + every path in `:extra-paths`"
+Ryan Laurie,iethree,2024-05-09 06:39:12+00:00,"Dashboard Picker (#41559)
+
+* wip dashboard picker
+
+* use in homepage selector
+
+* remove dead code
+
+* remove generateKey prop
+
+* add unit tests
+
+* cleanup
+
+* WIP unit tests
+
+* update personal/public interactions and tests
+
+* update e2e tests
+
+* allow disabling items in dashboardPicker
+
+* add new dashboard tag invalidation
+
+* use rtk in dashboardpicker
+
+* use collection_id from api
+
+* horrendous way of disabling read only items
+
+* remove badness
+
+* disallow selecting read-only dashboards in dashboard picker search
+
+* pass search filter as prop
+
+* update types and tests
+
+* update types and tests
+
+* address review comments"
+Ryan Laurie,iethree,2024-05-09 06:39:38+00:00,"Remove Extraneous Style Props (#42431)
+
+* remove in modeluploadmodal
+
+* remove unnecessary padding from new collection dialog"
+Aleksandr Lesnenko,alxnddr,2024-05-09 08:50:29+00:00,allow using urls from other columns in link templates (#42438)
+Ngoc Khuat,qnkhuat,2024-05-09 12:10:14+00:00,"fix malli error in defendpoint (#42089)
+
+* fix malli error in defendpoint
+
+* fix a couple more error print-outs
+
+---------
+
+Co-authored-by: Bryan Maass <bryan.maass@gmail.com>"
+Cam Saul,camsaul,2024-05-09 14:09:20+00:00,Add `metabase.actions.core` module API namespace (#42433)
+Romeo Van Snick,romeovs,2024-05-09 15:54:16+00:00,Use the correct icon for the extract column shortcut (#42415)
+Nemanja Glumac,nemanjaglumac,2024-05-09 16:16:22+00:00,"Consolidate `engine` utilities (#42211)
+
+* Remove unused functions
+
+* Remove `export` from a local function
+
+* Remove googleanalytics related engine code
+
+* Use `getEngines` selector instead of the deprecated Metabase `Settings`
+
+* Use `getDefaultEngineKey`
+
+* Use `formatSQL` function locally
+
+* Remove unused `getEngineLogo` function
+
+* Convert to TS
+
+* Remove unused export
+
+* Fix types
+
+* Expand test coverage
+
+* Update type
+
+* Remove `googleanalitics` from an assertion
+
+* Address review comment
+
+* Expand types
+
+* Add tests for `isDeprecatedEngine`
+
+* Expand tests"
+Ngoc Khuat,qnkhuat,2024-05-09 18:26:44+00:00,Fix mysql with multiple most recent revision (#42285)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-09 18:44:04+00:00,Fix axios security issue by updating the upstream library version (#42448)
+Ryan Laurie,iethree,2024-05-09 18:49:16+00:00,"Remove Dead Pickers (#41801)
+
+* update e2e tests
+
+* rework linked entity picker
+
+* remove deprecated pickers
+
+* remove dead picker code
+
+* another one bites the dust
+
+* remove create collection on the go
+
+* update linkedEntityPicker unit tests-
+
+* update timeline move modal
+
+* remove unused import"
+Kamil Mielnik,kamilmielnik,2024-05-09 19:02:25+00:00,"Fix flaky question management e2e test (#42444)
+
+* Fix flaky question management test
+
+* Update assertions order to reduce probability of a flake
+
+* Use explicit assertions
+
+* Change assertion order
+
+* Decrease flakiness"
+Jacob Joseph,likeshumidity,2024-05-09 19:58:09+00:00,[docs] Update environment-variables.md: fix typo re: MB_JETTY_SKIP_SNI (#42432)
+Raphael Krut-Landau,rafpaf,2024-05-09 21:41:25+00:00,Remove dead API keys code (#42418)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-09 21:44:34+00:00,"Fix not allow using both react 17 and 18 in the SDK (#42457)
+
+* Fix not allow using both react 17 and 18 in the SDK
+
+* Review: Fix not including React 17 🤦"
+Raphael Krut-Landau,rafpaf,2024-05-09 22:04:13+00:00,"Make Browse models table sortable (#42113)
+
+* squash
+
+* Reset change
+
+* Fix name column width"
+Ryan Laurie,iethree,2024-05-09 22:27:46+00:00,"Allow Admins to clean up uploaded tables in bulk (#42183)
+
+* add upload management API
+
+* add upload management interface
+
+* remove trailing slash
+
+* add e2e upload management test
+
+* add upload management to token_features
+
+* jsdoc cleanup
+
+* fixes tests
+
+- include :upload_management in session_test
+- fix list-url in upload management
+- ensure local tests have upload management disabled
+  (causes tests locally to 422 instead of 402: it has sufficient
+  permissions from a local token to try to delete the table but the
+  table is not an upload table, so you get a 422)
+
+* add card archive param
+
+* update tests
+
+* use common component
+
+* add success/error toasts
+
+* test success/error notifications
+
+* update e2e tests
+
+* address review comments
+
+* make sure we have fresh data
+
+---------
+
+Co-authored-by: dan sutton <dan@dpsutton.com>"
+Oisin Coveney,oisincoveney,2024-05-09 22:36:03+00:00,"Convert PublicDashboard to TS (#41972)
+
+Co-authored-by: Nicolò Pretto <info@npretto.com>"
+Tim Macdonald,tsmacdonald,2024-05-09 22:40:46+00:00,"Use official version of Marginalia (#42204)
+
+For Reasons™ we had been using my fork, but now that I've taken over the
+project the officially-deployed version does what we need."
+Braden Shepherdson,bshepherdson,2024-05-10 00:03:16+00:00,"[Drills] Only show ""Extract"" and ""Combine"" actions on MBQL stages (#42424)
+
+They don't work correctly on a native stage."
+Cam Saul,camsaul,2024-05-10 00:45:42+00:00,"Enumerate the current state of the world with regards to module namespaces (#42437)
+
+* Squashed commit
+
+* Update config
+
+* Backport the kondo ignore stuff from other PR."
+Uladzimir Havenchyk,uladzimirdev,2024-05-10 01:31:30+00:00,Disable cypress log to bypass out of memory issue (#41472)
+Braden Shepherdson,bshepherdson,2024-05-10 01:43:17+00:00,"[QP] Fix error with `:!=` ""Is Not"" filter on expression (#42461)"
+Alex Yarosh,alexyarosh,2024-05-10 03:12:33+00:00,add 49.9 (#42481)
+Cam Saul,camsaul,2024-05-10 03:13:27+00:00,"`metabase.metabot` API namespace (#42468)
+
+* Squashed commit
+
+* Update config
+
+* Backport the kondo ignore stuff from other PR.
+
+* Metabot API namespace"
+Alex Yarosh,alexyarosh,2024-05-10 03:54:59+00:00,fix format (#42485)
+Alex Yarosh,alexyarosh,2024-05-10 04:25:35+00:00,"[docs] see publicly shared content (#42488)
+
+* see shared content
+
+* Apply suggestions from code review
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Ngoc Khuat,qnkhuat,2024-05-10 08:45:18+00:00,Prioritize sending fast pulses (#42331)
+Raphael Krut-Landau,rafpaf,2024-05-10 11:11:56+00:00,Tweak the Model explanation banner (#42413)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-10 13:52:28+00:00,"Fix SDK interactive question showing no question error incorrectly (#42400)
+
+* Fix loading showing when it's not supposed to
+
+* Add unit test
+
+* Review: Improve code clarity"
+Phoomparin Mano,heypoom,2024-05-10 18:05:06+00:00,"Update embedding SDK readme to remove height CSS workaround (#42453)
+
+* update readme as height is now optional
+
+* remove other wrapper"
+Nemanja Glumac,nemanjaglumac,2024-05-10 19:14:25+00:00,Remove unused `exportCardQuery` endpoint definition from `DashboardApi` (#42499)
+Kamil Mielnik,kamilmielnik,2024-05-10 20:39:09+00:00,"Fix - `diagnose-expression` throws when `Offset` is nested (#42497)
+
+* Fix offset not working in case
+
+* Make offset function return any
+
+* Add a repro for #42377
+
+* Fix order of adjustments
+
+* Revert unrelated changes
+
+* Remove commented code
+
+* Revert unrelated changes"
+Alexander Solovyov,piranha,2024-05-10 20:49:02+00:00,[serdes] handle circular dependencies in dashboards (#42267)
+Alex Yarosh,alexyarosh,2024-05-10 21:27:35+00:00,add bq troubleshooting to the guide (#42492)
+Cal Herries,calherries,2024-05-10 22:08:10+00:00,Allow drivers to not automatically add a PK column for CSV uploads (50) (#42466)
+Raphael Krut-Landau,rafpaf,2024-05-10 22:57:28+00:00,"Put bulk actions above popovers in collections (#42512)
+
+* q
+
+* Restore margin-left adjustment"
+Emmad Usmani,EmmadUsmani,2024-05-10 23:01:34+00:00,"fix pie chart tooltip (#42465)
+
+* fix pie chart tooltip
+
+* add unit test"
+Raphael Krut-Landau,rafpaf,2024-05-10 23:03:28+00:00,squash (#42111)
+Alex Yarosh,alexyarosh,2024-05-10 23:06:28+00:00,"[docs] Clarify how optional SQL vars work (#42490)
+
+* how optional clauses work
+
+* Apply suggestions from code review
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Raphael Krut-Landau,rafpaf,2024-05-10 23:12:51+00:00,Fix drill FK test flake by removing unneeded wait for /api/dataset (#42501)
+Cam Saul,camsaul,2024-05-10 23:13:59+00:00,"`metabase.xrays` API namespace (#42491)
+
+* Remove unused `metabase.api.transform`
+
+* Copy the deps graph improvements from my other PR
+
+* New combined X-Rays API namespace
+
+* Fix kondo error"
+Ngoc Khuat,qnkhuat,2024-05-10 23:22:09+00:00,Thread safe static viz (#42494)
+Alex Yarosh,alexyarosh,2024-05-10 23:56:37+00:00,"[docs] Serialization docs update (#42439)
+
+* serialization update
+
+* anchor links
+
+* more anchor links
+
+* correct curl call
+
+* Apply suggestions from code review
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* Apply suggestions from code review
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+* review feedback
+
+* links
+
+* Update docs/installation-and-operation/serialization.md
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Alex Yarosh,alexyarosh,2024-05-11 00:42:14+00:00,add 48.13 (#42522)
+Emmad Usmani,EmmadUsmani,2024-05-11 00:44:07+00:00,"fix percent change across daylight savings (#42482)
+
+* fix percent change across DST
+
+* add e2e tests"
+Braden Shepherdson,bshepherdson,2024-05-11 00:50:29+00:00,"[QP] Handle variadic `:contains` etc. in dashboard filters (#42404)
+
+These params were failing to match. This matches them up and puts the
+options in the correct place. (`[:contains x y opts]` but `[:contains opts x y z]`)."
+Aleksandr Lesnenko,alxnddr,2024-05-11 01:40:04+00:00,"use echarts tree shaking api (#42520)
+
+* use echarts tree shaking api
+
+* fix specs
+
+* update types
+
+* move echarts module registration back to individual components
+
+* Transpile echarts in jest
+
+---------
+
+Co-authored-by: Uladzimir Havenchyk <uladzimir.dev@gmail.com>"
+Raphael Krut-Landau,rafpaf,2024-05-11 01:46:28+00:00,"[Browse] Improve model sorting (#42493)
+
+Ensures that models are sorted as follows in Browse models:
+
+* Models are sorted by collection, by default
+* When models are sorted by collection, they are secondarily sorted by name (so that models with the same collection path appear in alphabetic order)"
+Ryan Laurie,iethree,2024-05-11 04:07:37+00:00,Fix disabled state for bulk actions buttons (#42533)
+Emmad Usmani,EmmadUsmani,2024-05-11 04:09:13+00:00,remove unused viz series utils (#42422)
+Jesse Devaney,JesseSDevaney,2024-05-11 04:56:05+00:00,"Fix pie chart display when switching from notebook editor (#42430)
+
+* fix pie chart display when switching from notebook editor
+
+* remove hack
+
+* fix missing pie chart display
+
+* fix missing pie chart display
+
+* address feedback
+
+* fix type error"
+adam-james,adam-james-v,2024-05-11 06:39:04+00:00,"Format Rows toggle also applies to Column Names (#42543)
+
+* Format Rows toggle also applies to Column Names
+
+Fixes: #42500
+When format-rows is false, we want to also pass that true/false value to the title column formatting.
+
+That is, if a column is renamed and formatting is applied, we want to use that column's name. But, if a column is
+renamed and the user exports unformatted csv or json, the custom column name should NOT be used, as was the behaviour
+in prior versions.
+
+* write a better test explanation"
+Romeo Van Snick,romeovs,2024-05-13 13:26:52+00:00,"Extract column shortcut (#42261)
+
+* Render plus button in interactive table header
+
+* Add columnShortcuts on ClickObject
+
+* Dispatch click action for columnShortcuts on plus button
+
+* Make onCancel an optional prop
+
+* Add ExtractColumn action
+
+* Add ExtractColumn action to Default and Embedding mode
+
+* Use arrow_split icon for extract column action
+
+* Add title to extract column popover
+
+* Add e2e test for Extract column shortcut
+
+* Use asReturned in extract column
+
+* Rename to Extract part of column
+
+* Add a custom title to the new column shortcut
+
+* Add onClose to ExtractColumn popover
+
+* Hide shortcuts icon when question is not editable
+
+* Fix null error
+
+* Do not use submodules in import
+
+* Scroll more in test"
+Phoomparin Mano,heypoom,2024-05-13 14:18:35+00:00,bump to 0.1.3 (#42519)
+Nicolò Pretto,npretto,2024-05-13 14:44:35+00:00,remove google analytics (#42515)
+Nemanja Glumac,nemanjaglumac,2024-05-13 14:55:04+00:00,"Upgrade Cypress to `v13.9.0` (#42507)
+
+* Upgrade Cypress to `v13.9.0`
+
+* Upgrade `@replayio/cypress` to `v2.1.0`
+
+* Upgrade `cypress-real-events` to `v1.12.0`
+
+* Upgrade `esbuild` to `v0.21.1`"
+Phoomparin Mano,heypoom,2024-05-13 15:57:16+00:00,"Migrate smart scalar and night mode to support Mantine theming (#42347)
+
+* migrate smart scalar to css modules
+
+* lighten theme color
+
+* adjust margin
+
+* map space 1 to xs
+
+* use c prop instead of color
+
+* use rem unit
+
+* use rem unit
+
+* add y margin
+
+* return null when no children
+
+* comment on text variation
+
+* cleanup unused components and add dark mode todo
+
+* remove todo comment
+
+* support night mode in embedding
+
+* lift dashboard theme to redux
+
+* make theme non-nullable with default
+
+* use component prop instead of title tag
+
+* optional display theme
+
+* restore tooltip state
+
+* add default mock state
+
+* remove theme from embed
+
+* replace handleActions with createReducer"
+Ngoc Khuat,qnkhuat,2024-05-13 16:07:48+00:00,Quartz: auto delete jobs without a class during scheduler initialization (#42383)
+Nemanja Glumac,nemanjaglumac,2024-05-13 17:01:41+00:00,Remove code related to GoogleAnalytics tracking (#42556)
+Kamil Mielnik,kamilmielnik,2024-05-13 18:04:20+00:00,"Cover `Offset()` in aggregations with e2e tests (#42455)
+
+* Add repro for 32323
+
+* Fix offset not working in case
+
+* Make offset function return any
+
+* Add a repro for #42377
+
+* Fix order of adjustments
+
+* Revert unrelated changes
+
+* Remove commented code
+
+* Revert unrelated changes
+
+* Refactor test
+
+* Type offset aggregation
+
+* Add a test for no order by or breakout clause
+
+* Add a basic test for breakout clause
+
+* Fix assertion
+
+* Remove problematic dependency
+
+* Fix uuids generation
+
+* Remove redundant limit
+
+* Add a test for multiple breakouts
+
+* Update test names
+
+* Extract OFFSET_SUM_TOTAL_AGGREGATION
+
+* Add a repro for metabase#42509
+
+* Add a test for multiple aggregations and breakouts
+
+* Remove unused intercept
+
+* Move uuid utils to separate file
+- it wasn't possible to import the utils file in e2e tests without it
+
+* Make isUuid a type guard
+
+* Add tests for sorting
+
+* Tag the test
+
+* Add extra assertion to verify expression parsing
+
+* Add a complex scenario
+
+* Reverse isFirst logic"
+Romeo Van Snick,romeovs,2024-05-13 19:16:05+00:00,"Combine column shortcut (#42442)
+
+* Add index file to CombineColumns
+
+* Add CombinColumnAction
+
+* Add CombinColumnsAction to default and embedding modes
+
+* Fix outdated --color-brand references
+
+* Set up sequenced close handler in combine columns
+
+* Allow outside clicks to happen when popover is not open
+
+* Add e2e test for combine column shortcut
+
+* Remove unused prop
+
+* Rename file to match component name: CombineColumnsAction
+
+* Simplify test assertion
+
+* Set width on combine columns action
+
+* Remove superflouous ? check"
+Romeo Van Snick,romeovs,2024-05-13 20:52:54+00:00,"Combine/extract shortcuts snowplow events (#42445)
+
+* Copy question event to new version
+
+* Add new events for adding column via plus modal
+
+* Add plus modal variants
+
+* Track combine column via plus header
+
+* Track extract column via plus header
+
+* Add test for combine question event
+
+* Add e2e test for extract column shortcut snowplow events"
+Uladzimir Havenchyk,uladzimirdev,2024-05-13 21:35:14+00:00,"Partially fix columns and viz settings mismatch (#42344)
+
+From now we allow mismatch between `base-type` if we need to match columns and columnSettings"
+Nemanja Glumac,nemanjaglumac,2024-05-13 22:05:13+00:00,Remove `color-harmony` (#42577)
+Ngoc Khuat,qnkhuat,2024-05-13 22:17:44+00:00,Static viz get background color thread safe (#42548)
+Nemanja Glumac,nemanjaglumac,2024-05-13 22:44:07+00:00,Remove `classlist-polyfill` (#42588)
+Noah Moss,noahmoss,2024-05-13 22:49:30+00:00,SCIM-scoped API key (#42086)
+adam-james,adam-james-v,2024-05-14 03:21:22+00:00,"Don't use the slugify util for filenames (#42475)
+
+* Don't use the slugify util for filenames
+
+* Fix tests that looked for incorrect filenames
+
+* add a test
+
+* fix filename in pulse test util"
+Jeff Bruemmer,jeff-bruemmer,2024-05-14 03:26:31+00:00,add 49.10 (#42599)
+Raphael Krut-Landau,rafpaf,2024-05-14 03:47:44+00:00,"Ellipsify descriptions properly in Browse models (#42456)
+
+* Ellipsify descriptions properly in Browse models
+
+* Simplify"
+bryan,escherize,2024-05-14 05:55:58+00:00,"New Recents API Format (#42239)
+
+* wip
+
+* adds more collection-touch events
+
+* remove sneaky dep that slipped in
+
+* cleaning up, and adding tests
+
+* respond to review comments + mini bug reports
+
+* make it official
+
+* double official
+
+* cleanup + return recent-views/Item for `GET activity/popular_items`
+
+* get popular_items returning the proper shape
+
+* compare doesn't what I thought
+
+* add display_name to tables
+
+* table.database.name should be the db name, not the table name
+
+* add table.database.initial_sync_status
+
+* improve call to toucan2
+
+* light renaming + many text fixes
+
+* include moderated_status in cards and datasets
+
+* look up Dashboard permissions for Dashboards
+
+* stop double-querying for `can-write?` checks
+
+- also include some debug logging
+
+* fix card <-> model dispatching
+
+also gets tests passing locally
+
+* let the test runner run the tests
+
+* fix gc test
+
+* adds description
+
+* description can be null
+
+* better tests
+
+no more nils passed through the app
+
+* debugging test
+
+* fix tests and skip archived
+
+* mysql finesse
+
+* ellide inactive tables
+
+* wip
+
+* adds more collection-touch events
+
+* remove sneaky dep that slipped in
+
+* cleaning up, and adding tests
+
+* respond to review comments + mini bug reports
+
+* make it official
+
+* double official
+
+* cleanup + return recent-views/Item for `GET activity/popular_items`
+
+* get popular_items returning the proper shape
+
+* compare doesn't what I thought
+
+* add display_name to tables
+
+* table.database.name should be the db name, not the table name
+
+* add table.database.initial_sync_status
+
+* improve call to toucan2
+
+* light renaming + many text fixes
+
+* include moderated_status in cards and datasets
+
+* look up Dashboard permissions for Dashboards
+
+* stop double-querying for `can-write?` checks
+
+- also include some debug logging
+
+* fix card <-> model dispatching
+
+also gets tests passing locally
+
+* let the test runner run the tests
+
+* fix gc test
+
+* adds description
+
+* description can be null
+
+* better tests
+
+no more nils passed through the app
+
+* debugging test
+
+* fix tests and skip archived
+
+* mysql finesse
+
+* New Recents + Popular API Format - Frontend (#42305)
+
+* fix tests
+
+* new API payload format for recents and populars
+
+* update url generation
+
+* update recents components
+
+* update tests
+
+* only show 5 recents in command palette
+
+* remove unused types
+
+* update tests
+
+* obey the linter
+
+* type updates
+
+* fix unit test
+
+* change where we filter recents
+
+---------
+
+Co-authored-by: Bryan Maass <bryan.maass@gmail.com>
+
+* fix modelToUrl types
+
+* respond to review comments
+
+* post merge test fix
+
+---------
+
+Co-authored-by: Ryan Laurie <30528226+iethree@users.noreply.github.com>
+Co-authored-by: Ryan Laurie <iethree@gmail.com>"
+Emmad Usmani,EmmadUsmani,2024-05-14 08:35:58+00:00,"refactor legend components to use items prop (#42417)
+
+* refactor legend components to use items prop
+
+* update RowChart
+
+* add types
+
+* add key to type
+
+* fix type errors
+
+* fix legend.unit.spec.ts"
+Emmad Usmani,EmmadUsmani,2024-05-14 09:29:45+00:00,add + symbol to percent change tooltip (#42614)
+Aleksandr Lesnenko,alxnddr,2024-05-14 10:12:50+00:00,allow description columns to be dimensions of charts (#42539)
+Nemanja Glumac,nemanjaglumac,2024-05-14 11:53:41+00:00,Remove `number-to-locale-string` (#42590)
+Uladzimir Havenchyk,uladzimirdev,2024-05-14 15:22:44+00:00,Avoid unnecessary re-renderings in column settings sidebar (#42595)
+Romeo Van Snick,romeovs,2024-05-14 15:35:23+00:00,Prevent the suggestion popover from flipping to the top (#42625)
+Nemanja Glumac,nemanjaglumac,2024-05-14 15:46:44+00:00,"Allow multiple values for string operators in the dashboard (#42013)
+
+* Expand the single or multi-selectable string filter choices
+
+* Mark operators as `multi`
+
+* Wrap an existing test in a separate `describe` block
+
+* Test multiple values settings
+
+* Expand repro to include multiple dashboard filter values
+
+* Ease the load by limiting the card results
+
+* Switch to the more flexible data structure for the dashboard filters
+
+* Expand the assertions
+
+* Fix typo
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+---------
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Nemanja Glumac,nemanjaglumac,2024-05-14 16:05:17+00:00,"Remove unused `SettingsBatchForm` component (#42627)
+
+* Remove unused `SettingsBatchForm` component
+
+* Remove `react-collapse` and its types"
+Chris Truter,crisptrutski,2024-05-14 17:05:08+00:00,Fix reflection on newer JVM versions (#42630)
+Raphael Krut-Landau,rafpaf,2024-05-14 20:40:51+00:00,Fix column widths in Browse models (#42601)
+Ngoc Khuat,qnkhuat,2024-05-14 21:09:15+00:00,Fix migration fail with encryption key (#42617)
+Ngoc Khuat,qnkhuat,2024-05-14 21:09:51+00:00,Delete pulses when archive dashboard (#42558)
+Nemanja Glumac,nemanjaglumac,2024-05-14 21:15:38+00:00,"Remove unused `@visx` libraries (#42624)
+
+* Remove `@visx/event`
+
+* Remove `@visx/legend`
+
+* Remove `@visx/responsive`
+
+* Remove `@visx/mock-data`
+
+* Remove `@visx/tooltip`"
+Ryan Laurie,iethree,2024-05-14 22:19:28+00:00,"Recents Picker Tab (#42079)
+
+* add recents tab
+
+type updates
+
+fix unit test
+
+change where we filter recents
+
+WIP Recents Tab
+
+wip recents
+
+design updates
+
+update recents design to match search
+
+use new recents format
+
+initial recents implementation
+
+fix types
+
+* fix e2e tests
+
+* update more e2e tests
+
+* allow recents filters
+
+* update test mocks
+
+* add unit tests for recents tab
+
+* update e2e tests
+
+* add e2e tests for recents picker tab
+
+* fix lost access test"
+bryan,escherize,2024-05-14 22:32:37+00:00,"handle RecentViews for non-existant entites (#42643)
+
+* handle recent view for non-existant entity
+
+* test that recent views works with missing entities
+
+- just doesn't return them.
+
+* dont count on there being entities in the app-db"
+Ryan Laurie,iethree,2024-05-14 22:36:16+00:00,"Disable Error Diagnostic Modal In Embedding (#42641)
+
+* Disable Error Diagnostic Modal In Embedding
+
+* add e2e test for diagnostic modal"
+Nemanja Glumac,nemanjaglumac,2024-05-14 23:27:20+00:00,"Fix broken metric revision API call (#42634)
+
+* Fix broken metric revision API call
+
+Fixes #42633
+
+* Add E2E repro for #42633
+
+* Fix metrics revision history in the data reference
+
+* Add repro for #42633 for the reference page
+
+* Consolidate tests
+
+* Do not use hard coded id
+
+* Fix lint errors"
+Anton Kulyk,kulyk,2024-05-15 00:01:11+00:00,"Use icons for ""Line style"" viz settings (#42637)
+
+* Add icons
+
+* Use icons"
+Braden Shepherdson,bshepherdson,2024-05-15 00:06:35+00:00,"[Drivers] New `features` to replace hard-coded driver lists in tests (#42602)
+
+- `:metadata/key-constraints` for those databases which formally track
+  PK and FK key constraints. Some databases (eg. Presto/Athena/Starburst
+  family) don't support constraints like that, but do support querying
+  based on foreign keys (which is the `:foreign-keys` feature).
+- `:connection/multiple-databases` for databases where a single
+  connection can connect to many databases. This is the case for Athena,
+  since it connects to an S3 bucket and exposes all files in the bucket
+  as databases through that single connection.
+- Also removed a troublesome ""all DBs except a huge list"" case in the
+  SSH tunnel tests with a shorter list of supported drivers."
+Alexander Polyankin,ranquild,2024-05-15 02:04:20+00:00,Fix metadata loading issues after tabs (#42655)
+Uladzimir Havenchyk,uladzimirdev,2024-05-15 02:51:19+00:00,"Optimize isVisualizationClickable check in TableInteractive (#42639)
+
+* Optimize isVisualizationClickable check in TableInteractive
+
+* Destructure question
+
+* Mode is nullable"
+Braden Shepherdson,bshepherdson,2024-05-15 03:20:22+00:00,"[MBQL lib] Add native queries to the shared tests for all drills (#42478)
+
+Follow up to #42424.
+
+This enforces that all drills do not appear on native stages.
+Also fixes one more drill on top of the two in #42424 that were wrongly
+showing up for native queries."
+Jeff Bruemmer,jeff-bruemmer,2024-05-15 03:31:47+00:00,docs - view data and create queries (#42121)
+Emmad Usmani,EmmadUsmani,2024-05-15 05:42:51+00:00,remove percent change tooltip from waterfall chart (#42658)
+Aleksandr Lesnenko,alxnddr,2024-05-15 06:20:30+00:00,"fix static combo chart crashes when viz settings are invalid (#42669)
+
+* fix static combo chart crashes when viz settings are invalid
+
+* spec"
+Ngoc Khuat,qnkhuat,2024-05-15 12:42:44+00:00,"An one time job to init send-pulse trigger and migration down to clean up send-pulse triggers (#42316)
+
+* Add a job to init send pulse trigger only once
+
+* Send pulse triggers should respect report timezone (#42502)"
+Uladzimir Havenchyk,uladzimirdev,2024-05-15 13:01:06+00:00,Optimize getColumnCardinality by using cache correctly (#42664)
+Romeo Van Snick,romeovs,2024-05-15 13:48:18+00:00,"Info icon design update (#42557)
+
+* Render item icon inline with column icon
+
+* Use inline info icon in field picker
+
+* Use new QueryColumnInfoIcon on filter columns picker
+
+* Use new QueryColumnInfoIcon on suggestions dropdown
+
+* Use new QueryColumnInfoIcon aggregations dropdown
+
+* Use new QueryColumnInfoIcon filter modal
+
+* Use new QueryColumnInfoIcon in BreakoutColumnListItem
+
+* Use new QueryColumnInfoIcon in FieldList
+
+* Use new QueryColumnInfoIcon in DataSelectorFieldPicker
+
+* Update TableInfoIcon to render fallback too
+
+* Use new TableInfoIcon in DataSelector
+
+* Use new TableInfoIcon in ViewHeader
+
+* Fix types in breakout column
+
+* Move aria-label to wrapper
+
+* Move binning back to the right
+
+* Always give info icon full opacity
+
+* Remove asDot props everywhere"
+Alexander Solovyov,piranha,2024-05-15 17:08:32+00:00,"json unfolding: parse incrementally instead of using cheshire (#42638)
+
+this lowers memory usage 100x for 50kb strings (our limit before this change) and speeds up parsing by an order of magnitude.
+
+For example, results for parsing 42kb string (already in memory):
+
+Before: Time per call: 6.32 ms    Alloc per call: 8,732,850b
+After:  Time per call: 55.16 us   Alloc per call: 83,254b"
+Nemanja Glumac,nemanjaglumac,2024-05-15 19:10:29+00:00,"Require an explicit knob to allow uploading ReplayIO recordings (#42649)
+
+* Explicitly decide whether to upload or not
+
+* Upload in the main e2e workflow, but skip uploading in stress-test workflow
+
+* Do not record runs in the stress-test workflow
+
+* Add Replay API key
+
+Even though we're not using it in this workflow. :shrug:
+
+* Omit env var from the stress-test workflow"
+Raphael Krut-Landau,rafpaf,2024-05-15 20:23:26+00:00,Use new icon for verified models (#42689)
+Raphael Krut-Landau,rafpaf,2024-05-15 23:40:44+00:00,Don't explicitly set the dimensions of the verified model icon (#42702)
+Raphael Krut-Landau,rafpaf,2024-05-15 23:42:45+00:00,Add cache configuration form to dashboard sidebar (#42192)
+Phoomparin Mano,heypoom,2024-05-16 00:13:03+00:00,"Support basic theming in interactive data tables for embedding SDK (#42411)
+
+* support theming in table
+
+* theme injection with hoc
+
+* reasonable default theme options
+
+* customizable text color
+
+* theming table header
+
+* table theming
+
+* change theme configuration order
+
+* apply sorted cell color directly
+
+* gutter background
+
+* remove header theming for now
+
+* fix: id column styling
+
+* id column borders
+
+* border color
+
+* add cell hover color
+
+* conditional hover color
+
+* use brand color to accent
+
+* add default theme values to unit test
+
+* cell background should default to white
+
+* update unit test
+
+* remove unused properties
+
+* remove duplicated color declaration as inner cell data styles it
+
+* remove duplicate fallback
+
+* remove unused use-embedding-theme hook
+
+* use theme color from Mantine for css variables
+
+* update defaults
+
+* inject default component theme
+
+* add notes on cell data theme
+
+* update unit tests
+
+* update unit tests
+
+* remove no-op text-brand hover color
+
+* remove no-op is sorted cell color"
+Romeo Van Snick,romeovs,2024-05-16 00:23:12+00:00,"Design update for extract examples (#42399)
+
+* Move the extract examples inline
+
+* Use ui Button for ClickAction and render examples inline"
+adam-james,adam-james-v,2024-05-16 00:47:58+00:00,"Pivot table exports (#41668)
+
+* PoC Pivot table exporting.
+
+Works so far!
+
+This just hacks a couple things in. I added the :query via format_rows, which should instead have its own proper
+middleware
+
+Pivot export should probably not just be in the middleware namespace but in qp.pivot.
+
+Should not break the streaming results writer for non-pivots... obviously this breaks ordinary results, so that needs
+to be handled properly.
+
+Better documentation about how the logic actually works. Pivot tables are hard to remember/easy to forget, so some
+very clear diagrams/examples would probably be good.
+
+* adjust csv export to export a pivot table when pivot options exist
+
+* post processing of pivot table rows for card/dashcard downloads
+
+* WIP on getting pivot exports to work with unsaved questions
+
+* WIP getting pivot exports working on unsaved questions
+
+The dataset POST /pivot endpoint is used to get the pivot data to the frontend, but also to get the pivot query.
+
+The query that is returned by the POST comes from the json_query, which is populated by the userland-query stuff with
+the last run query. The pivot qp runs mulitple queries and each query runs through the regular userland query qp, so
+we'll 1. see lots of executions recorded and 2. end up with the wrong query in the POST return. It'll look mostly
+correct, but due to how the pivot qp works won't necessarily have all of the fields.
+
+That incorrect pivot query is passed to the /:export-format endpoint and we don't end up seeing correct results.
+
+Since that json_query gets fed back to the backend when doing an export, we do need it to be correct, like the query
+that was sent to /pivot in the first place.
+
+Since this is a WIP, I've just passed the query as a string to :original-query in :info, and if that exists, use that
+to fill the :json_query key.
+
+Then, also add a :was-pivot flag so that the dataset download endpoint can look at it and use the pivot qp instead of
+the regular qp. Even if we have the correct 'top level' query, we need to run it through the pivot qp to get the full,
+correct pivoted results.
+
+* Pivot Export Test
+
+Here I've added a pivot export test that has various assertions trying to capture the correct output from the pivot
+csv export.
+
+I've done my best to explain the tests with comments, but have also left a (comment ) form with a function
+`explore-pivot` to help *show* rather than tell what the expected pivot output should be.
+
+I've created this new namespace to first capture this pivot export test with the intent to add tests that can improve
+our confidence that ALL exports/downloads in ALL places behave as we expect in the future. It just seemed nice to
+start fresh here with the pivot export test first.
+
+* Don't need to make this public.
+
+* Add lots of comments to hopefully make this a bit easier to follow
+
+* Added an explore-raw-pivot fn in comment form
+
+* Update test/metabase/api/downloads_exports_test.clj
+
+Co-authored-by: Cam Saul <1455846+camsaul@users.noreply.github.com>
+
+* begin addressing feedback
+
+- finish an unfinished docstring
+- merge info instead of assoc
+- use a native query to build the pivot data instead of using a custom dataset, to keep test speed ok
+
+* Create a new ns for the pivot post processing utils
+
+Separate the post processing fns into their own namespace. This means I can easily add a test namespace for the post
+processing specifically as well.
+
+* Add pivot postprocessing test ns, not complete, but decent start
+
+* fix mistake in endpoint. Only add original query to first pivot q
+
+* Figured out how to keep the original query without storing as a string
+
+* Perhaps this'll fix things properly?
+
+---------
+
+Co-authored-by: Cam Saul <1455846+camsaul@users.noreply.github.com>"
+John Swanson,johnswanson,2024-05-16 02:10:16+00:00,"remove TODOs from metabase.models.setting (#40020)
+
+3 TODOs were removed here:
+
+- ""a way to SET Database-local values."" More like TODONE :haaa:
+
+- ""we should probably also bind this [that is, *database-local-values*]
+in sync contexts e.g. functions in [[metabase.sync]]"" I think we don't
+need to do this. The full set of maybe-database-local settings right now
+is `aggregated-query-row-limit`, `unaggregated-query-row-limit`,
+`database-enable-actions`, and `persist-models-enabled`. None of these
+need to be set when `sync`ing. If at some point we do add a db-local
+setting that should affect the way syncing works, we will need to do
+this - but I don't think this TODO will help figure that out.
+
+- ""settings sent via an env var aren't returned for security purposes.
+It is an open question whether we should obfuscate them and still show
+the last two characters like we do for sensitive values that are set via
+the UI."" I think if it's been this way for 5 years, it no longer
+qualifies as an ""open question."" We can reopen if down the road if this
+is something we want."
+Alex Yarosh,alexyarosh,2024-05-16 02:28:31+00:00,"[docs] Jessica's onboarding feedback (#42670)
+
+* update collections
+
+* feedback
+
+* links
+
+* Update docs/questions/native-editor/sql-parameters.md
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>
+
+---------
+
+Co-authored-by: Jeff Bruemmer <jeff.bruemmer@gmail.com>"
+Nick Fitzpatrick,npfitz,2024-05-16 03:26:45+00:00,"replace search bar with command palette toggle (#42603)
+
+* replace search bar with command palette toggle
+
+* e2e test part one
+
+* onboarding suite
+
+* green e2e
+
+* unit tests
+
+* delete shame"
+Jeff Bruemmer,jeff-bruemmer,2024-05-16 04:08:54+00:00,docs - offset (#42484)
+Jeff Bruemmer,jeff-bruemmer,2024-05-16 04:09:19+00:00,docs - update appearance settings (#42388)
+Raphael Krut-Landau,rafpaf,2024-05-16 04:23:28+00:00,"Move createMockModelResult to browse folder (#42690)
+
+* Move createMockModelResult to browse folder
+
+* fix"
+Nick Fitzpatrick,npfitz,2024-05-16 04:48:15+00:00,"42701 search type ahead cp (#42716)
+
+* respect search-typeahead-enabled
+
+* updating unit test
+
+* adding e2e test"
+Luis Paolini,paoliniluis,2024-05-16 06:45:23+00:00,"Bump SQL Server driver for v50 (#41021)
+
+same compatibility of the previous one but this is compatible with JDK 21
+https://learn.microsoft.com/en-us/sql/connect/jdbc/release-notes-for-the-jdbc-driver?view=sql-server-ver16
+
+Co-authored-by: Cam Saul <1455846+camsaul@users.noreply.github.com>"
+Cal Herries,calherries,2024-05-16 11:07:33+00:00,Realize DB transient rows in after-select hook before calling `driver.u/features` (#42744)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-16 13:03:22+00:00,Upgrade redshift dependency version (#42746)
+Tim Macdonald,tsmacdonald,2024-05-16 19:13:59+00:00,"[ParseSQL] Find-and-replace for variables and field filters (#42703)
+
+* Add a simple replace-names test
+
+* Support find-and-replace in cards with variables and field filters
+
+[Fixes #42580]
+
+[Fixes #42581]
+
+* Add models.card/replace-fields-and-tables!
+
+* Docstring fix
+
+* Little cleanup"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-16 20:21:09+00:00,"Automate releasing embedding SDK (#42516)
+
+* WIP some workflows
+
+* Add reminder todo comment
+
+* Complete the workflow
+
+* Fix YAML syntax error
+
+* Trigger the workflow
+
+* Fix resuable workflow
+
+* Fix uberjar workflow
+
+* Add missing steps before testing
+
+* Pass recrets to resuable workflow, so it could run
+
+* Fix sdk artifact location
+
+* Remove unneeded output
+
+* fetch tags, so it doesn't fail on push
+
+* Only running EE uberjar in SDK workflow
+
+Because OSS is never needed
+
+* Fix incorrect syntax
+
+* Shuffle workflow so it failed fast
+
+* Fix syntax error
+
+* Attempt to bulid only EE jar
+
+* Fix the error handling step
+
+* Fix failing to upload to s3
+
+* Fix create a PR step
+
+* Fix the last temporary command, so the build looks green
+
+* Remove hack to trigger the workflow
+
+* Remove completed todo comment
+
+* Clean up S3 step
+
+* Add todo comment
+
+* Upload correct docker image name
+
+* Bump the package version before building SDK
+
+* Fix uploading the correct Metabase dev container name
+
+* Fix one too many double quote
+
+* Push the correct docker image
+
+* Fix PR creation step
+
+* Dry run publishing SDK
+
+* Use a separate uberjar workflow for SDK
+
+* Remove a bunch of unused steps
+
+* Update variable names, step names
+
+* Improve tag error message
+
+* Correct m2-cache-key to be unique
+
+* Fix the push tag failure step to only run when failed to push tag
+
+* Fix changed artifact name
+
+* Improve env name for clarity
+
+* Fix extra trailing empty line
+
+* Remove conditions from running certian steps
+
+* Removing npm publish dry-run"
+Alexander Polyankin,ranquild,2024-05-16 20:53:14+00:00,Fix broken pivot table questions that had out of date viz settings (#42698)
+Oisin Coveney,oisincoveney,2024-05-16 21:15:04+00:00,Fix unmounted node error on ExplicitSize (#42766)
+Nemanja Glumac,nemanjaglumac,2024-05-16 21:42:28+00:00,Remove the last traces of BuildJet from the CI (#42758)
+Aleksandr Lesnenko,alxnddr,2024-05-16 23:37:29+00:00,drop percy (#42303)
+Kamil Mielnik,kamilmielnik,2024-05-17 02:23:16+00:00,`Offset` in custom expressions (#42751)
+adam-james,adam-james-v,2024-05-17 03:05:23+00:00,"Correct Data Shape for Multi-Series Static Viz (#42730)
+
+* Correct Data Shape for Multi-Series Static Viz
+
+Fixes: #41787
+
+During the echarts migration, some backend tests needed fixing. In this process, the shape of data (eg. list of cards
+and their data results from execution) were altered.
+
+This was done to fix failing tests and renders for single series cards (all Questions and many dashcards), but didn't
+correctly handle a multi-series card.
+
+This conditionally adds back the expected shape.
+
+Perhaps in a follow on PR it's worth inspecting the implementation of the :javascript_visualization render method to
+clean it up. Probably worth putting some Malli schemas around it too to make it clearer what shape we need.
+
+* Make sure card/data maps going into static-viz are distinct
+
+* Add a test util to render dashcards, add multiseries card test
+
+We haven't made a 'unit' (perhaps more like a small integration test at this point) test for multi series dashcards
+yet.
+
+In most other cases, making sure a card (Question) renders properly is sufficient, but the multi series dashcards are
+a special case. It's probably useufl to have a test or two, and the dashcards test util should hopefully help future
+test writing a bit now too."
+Jeff Bruemmer,jeff-bruemmer,2024-05-17 03:30:59+00:00,49.11 to list of releases (#42794)
+Braden Shepherdson,bshepherdson,2024-05-17 04:27:36+00:00,"[MBQL lib] Add `canPreview` and use it from the notebook (#42791)
+
+* [MBQL lib] Add `canPreview` and use it from the notebook
+
+* Fix previewQuery
+
+* Apply can-preview across stages; add unit tests
+
+---------
+
+Co-authored-by: Alexander Polyankin <alexander.polyankin@metabase.com>"
+adam-james,adam-james-v,2024-05-17 04:36:41+00:00,"Area Bar Combo Stacked Viz Settings Migration (#42740)
+
+* Area Bar Combo Stacked Viz Settings Migration
+
+Per: https://www.notion.so/metabase/Migration-spec-e2732e79215a4a5fa44debb272413db9
+
+This addresses the necessary migrations for area/bar/combo stacked viz settings.
+
+* Custom migration test works
+
+* Check that non area/bar/combo charts also remove stack_display"
+Aleksandr Lesnenko,alxnddr,2024-05-17 04:40:46+00:00,"combo stacked chart (#42085)
+
+* combo stacked chart
+
+* spec
+
+* remove irrelevant spec
+
+* combo stacking
+
+* fix selecting y-axis on stacked charts
+
+* snapshot
+
+* linter, specs, types
+
+* propagate combo stacking to area and bar charts (#42600)
+
+* propagate combo stacking to area and bar charts
+
+* enable combo stacking for bar/area charts, fix data transform
+
+* fix types, specs
+
+* fix y-axis extents calculations
+
+* remove spec that tested the removed control, update specs, update test data
+
+* review
+
+* show show data values setting on normalized charts that have a line series
+
+* fixes"
+Raphael Krut-Landau,rafpaf,2024-05-17 04:56:46+00:00,"Browse-related heading changes (#42779)
+
+Rename ""Browse data"" to ""Browse databases""
+
+Closes #42781"
+Raphael Krut-Landau,rafpaf,2024-05-17 04:58:24+00:00,"Allow license tokens that start with `airgap_` (#42733)
+
+Accept license tokens with an `airgap_` prefix, besides the already accepted 64-character long tokens.
+
+This weakens the validation in the FE. Rigorous validation of tokens beginning with `airgap_` occurs in the BE. See this [Slack message](https://metaboat.slack.com/archives/C064EB1UE5P/p1715813885703249?thread_ts=1715813614.437989&cid=C064EB1UE5P)."
+Ryan Laurie,iethree,2024-05-17 05:12:28+00:00,"Basic Upsell System Setup + Hosting Upsell (#42785)
+
+* Basic Upsell System Setup
+
+* Hosting Upsell
+
+* add upsell to updates page
+
+* update utms
+
+* update copy, utms and text"
+Alexander Polyankin,ranquild,2024-05-17 05:51:38+00:00,Use is-empty and not-empty for string columns in quick filter drill (#42804)
+Filipe Silva,filipesilva,2024-05-17 06:05:32+00:00,"Cloud Migration Feature (#41317)
+
+* feat: cloud migration endpoints
+
+* fix: don't leave open conn behind when checking migrations
+
+`unrun-migrations` would open a new connection but not close it.
+Since `with-liquibase` is happy enough using a data-source the fix is straightforward.
+
+You can verify this by running the following code:
+
+```
+(comment
+  (require '[metabase.cmd.dump-to-h2 :as dump-to-h2]
+           '[metabase.analytics.prometheus :as prometheus])
+
+  (defn dump []
+    (-> (str ""cloud_migration_dump_"" (random-uuid) "".mv.db"")
+        io/file
+        .getAbsolutePath
+        dump-to-h2/dump-to-h2!))
+
+  (defn busy-conns []
+    (-> (prometheus/connection-pool-info)
+        first
+        second
+        :numBusyConnections))
+
+  ;; each dump leaves behind 1 busy conn
+
+  (busy-conns)
+  ;; => 0
+
+  (dump)
+  (busy-conns)
+  ;; => 1
+
+  (dump)
+  (busy-conns)
+  ;; => 2
+
+  (dump)
+  (busy-conns)
+  ;; => 3
+
+  )
+```
+
+* fix: flush h2 before returning from dump
+
+* rfct: move code to models.cloud-migration
+
+* test: add login while on read-only test
+
+* fix: assorted cloud_migration fixes from review
+
+* test: allow overriding uploaded dump
+
+* fix: add UserParameterValue to read-only exceptions
+
+Also make the list a little bit nicer.
+
+* fix: only block dumped tables on read-only
+
+* fix: recover on startup if read-only was left on
+
+* feat: block migration when hosted already
+
+* test: test settings for migration
+
+* feat: cloud migration supports retries and multipart
+
+* test: sane dev defaults for migration
+
+* fix: upload 100% shouldn't be migration 100%
+
+* chore: make up a new migration id after merge
+
+* Cloud Migration FE (#42542)
+
+* it's a start
+
+* ui wip
+
+* wip
+
+* dynamic polling intervals, and custom modal for migrate confirmation modal
+
+* cleans out most of the remainig UI TODOs
+
+* adding progress component
+
+* impls team feedback
+
+* makes component more testable, starts some a unit test for the CloudPanel
+
+* finish unit testing
+
+* reverts api changes
+
+* update progress styling
+
+* fix type issues
+
+* fix e2e failure, fix feature unit tests by holding last migration state in fetchMock if more requests than expected happen at the end of a test, remove white spacing change in clj file
+
+* second pass at fixing tests
+
+* fix copy from ready-only to read-only
+
+* copy fix
+
+* Update frontend/src/metabase/admin/settings/components/CloudPanel/MigrationError.tsx
+
+Co-authored-by: Raphael Krut-Landau <raphael.kl@gmail.com>
+
+* Update frontend/src/metabase/admin/settings/components/CloudPanel/MigrationInProgress.tsx
+
+Co-authored-by: Raphael Krut-Landau <raphael.kl@gmail.com>
+
+* adding e2e test
+
+* pr feedback
+
+---------
+
+Co-authored-by: Nick Fitzpatrick <nickfitz.582@gmail.com>
+Co-authored-by: Raphael Krut-Landau <raphael.kl@gmail.com>
+
+---------
+
+Co-authored-by: Sloan Sparger <sloansparger@users.noreply.github.com>
+Co-authored-by: Nick Fitzpatrick <nickfitz.582@gmail.com>
+Co-authored-by: Raphael Krut-Landau <raphael.kl@gmail.com>"
+bryan,escherize,2024-05-17 06:19:58+00:00,"Recents API Improvements (#42660)
+
+* handle recent view for non-existant entity
+
+* test that recent views works with missing entities
+
+- just doesn't return them.
+
+* dont count on there being entities in the app-db
+
+* Query for the entity data upfront for recent-views
+
+- Still need to check for the model_object due to popular-items calls
+
+* cleanup, fix ellide logic
+
+memoize get-parent-coll
+
+* more cleanup
+
+* rewire half of the queries
+
+* rewrite the other queries, and improve docs
+
+* align some queries
+
+* lookup all entities ahead of time
+
+- always return effective parent collections
+
+* seperate n+1 tests
+
+* use = instead of a set
+
+* no need for a vector
+
+* fixup simple table test
+
+* go from effective-location-path to id instead of hydrating"
+Alexander Polyankin,ranquild,2024-05-17 07:44:10+00:00,Fix filters with `is-null` and `not-null` operators crashing the QB (#42796)
+Cal Herries,calherries,2024-05-17 08:18:01+00:00,Exclude view_count columns from serialized dashboard and card (#42801)
+Cam Saul,camsaul,2024-05-17 09:56:23+00:00,"Fix sorting by `Offset()` custom expression aggregation (#42737)
+
+* Fix sorting by `Offset()` custom expression aggregation
+
+* Unskip test
+
+* Revert breaking change to `mt/id` and related"
+Raphael Krut-Landau,rafpaf,2024-05-17 10:33:06+00:00,Add cache invalidation configuration form to question info sidebar (#42729)
+Cal Herries,calherries,2024-05-17 10:44:09+00:00,Remove some columns from serialized card and table entities (#42812)
+Raphael Krut-Landau,rafpaf,2024-05-17 11:22:38+00:00,rebase (#42788)
+Jesse Devaney,JesseSDevaney,2024-05-17 14:02:41+00:00,"Move series data label formatters from `option` to the `model` (#42616)
+
+* move series data label formatters to the model
+
+- TODO: move stacked data label formatters to the model
+
+* combo stacked chart
+
+* spec
+
+* remove irrelevant spec
+
+* combo stacking
+
+* fix selecting y-axis on stacked charts
+
+* snapshot
+
+* linter, specs, types
+
+* propagate combo stacking to area and bar charts
+
+* enable combo stacking for bar/area charts, fix data transform
+
+* fix types, specs
+
+* fix y-axis extents calculations
+
+* remove spec that tested the removed control, update specs, update test data
+
+* propagate combo stacking to area and bar charts (#42600)
+
+* propagate combo stacking to area and bar charts
+
+* enable combo stacking for bar/area charts, fix data transform
+
+* fix types, specs
+
+* fix y-axis extents calculations
+
+* remove spec that tested the removed control, update specs, update test data
+
+* review
+
+* remove unused formatting options parameter
+
+* move stacked labels formatter to model
+
+* fix stacked combo chart label display for non-stacked lines
+
+* combo stacked chart
+
+* spec
+
+* remove irrelevant spec
+
+* combo stacking
+
+* fix selecting y-axis on stacked charts
+
+* snapshot
+
+* linter, specs, types
+
+* propagate combo stacking to area and bar charts (#42600)
+
+* propagate combo stacking to area and bar charts
+
+* enable combo stacking for bar/area charts, fix data transform
+
+* fix types, specs
+
+* fix y-axis extents calculations
+
+* remove spec that tested the removed control, update specs, update test data
+
+* review
+
+* fix waterfall chart labels
+
+---------
+
+Co-authored-by: Aleksandr Lesnenko <alxnddr@gmail.com>
+Co-authored-by: Aleksandr Lesnenko <alxnddr@users.noreply.github.com>"
+Oisin Coveney,oisincoveney,2024-05-17 14:23:53+00:00,Bump `screenfull` version to 6.0.2 (#42776)
+Nick Fitzpatrick,npfitz,2024-05-17 15:06:39+00:00,defaultToRecentsTab added (#42800)
+Uladzimir Havenchyk,uladzimirdev,2024-05-17 16:37:14+00:00,Maintain user-level state in dashboards for filters (#39813)
+Luiz Arakaki,luizarakaki,2024-05-17 16:51:28+00:00,"Update Metabase Analytics content for v50 (#42799)
+
+* update metabase analytics with cache dashboardtab and subscriptions and alerts dashboard
+
+* update yamls without view_count
+
+* fix metabase analytics namespace"
+Sloan Sparger,sloansparger,2024-05-17 17:01:30+00:00,"[Feature branch] Make Trash Usable (#42339)
+
+* Migration to add `trashed_from_*` (#41529)
+
+We want to record where things were trashed *from* for two purposes:
+
+- first, we want to be able to put things back if they're ""untrashed"".
+
+- second, we want to be able to enforce permissions *as if* something is
+still in its previous location. That is, if we trash a card or a
+dashboard from Collection A, the permissions of Collection A should
+continue to apply to the card or dashboard (e.g. in terms of who can
+view it).
+
+To achieve this, collections get a `trashed_from_location` (paralleling
+their `location`) and dashboards/cards get a
+`trashed_from_collection_id` (paralleling their `collection_id`).
+
+* Create the trash collection on startup (#41535)
+
+* Create the trash collection on startup
+
+The trash collection (and its descendants) can't have its permissions
+modified.
+
+Note that right now, it's possible to move the Trash collection. I'll
+fix this when I implement the API for moving things to the Trash.
+
+* s/TRASH_COLLECTION_ID/trash-collection-id/g
+
+* Add a comment to explain null comparison
+
+* Move archived items to the trash (#41543)
+
+This PR is probably too big. Hopefully documenting all the changes made here will make it easier to review and digest. So:
+
+Tables with a `collection_id` had `ON DELETE SET NULL` on the foreign key. Since we only deleted collections in testing and development, this didn't really affect anything. But now that we are actually deleting collections in production, it's important that nothing accidentally get moved to the root collection, which is what `SET NULL` actually does.
+
+When we get an API request to update the `archived` flag on a card, collection, or dashboard, we either move the item *to* the trash (if `archived` is `true`) or *from* the trash (if `archived` is `false`). We set the `trashed_from_collection_id` flag as appropriate, and use it when restoring an item if possible.
+
+Because moving something to the trash by itself would have permissions implications (since permissions are based on the parent collection) we need to change the way permissions are enforced for trashed items.
+
+First, we change the definition of `perms-objects-set-for-parent-collection` so that it returns the permission set for the collection the object was *trashed from*, if it is archived.
+
+Second, when listing objects inside the Trash itself, we need to check permissions to make sure the user can actually read the object - usually, of course, if you can read a collection you can read the contents, but this is not true for the trash so we need to check each one. In this case we're actually a little extra restrictive and only return objects the user can *write*. The reasoning here is that you only really want to browse the Trash to see things you could ""act on"" - unarchive or permanently delete. So there's no reason to show you things you only have read permissions on.
+
+Because previously the Collections API expected archived collections to live anywhere, not just in a single tree based in the Trash, I needed to make some changes to some API endpoints.
+
+This endpoint still takes an `exclude-archived` parameter, which defaults to `false`. When it's `false`, we return the entire tree including the Trash collection and archived children. When it's `true`, we exclude the Trash collection (and its subtree) from the results.
+
+Previously, this endpoint took an `archived` parameter, which defaulted to `false`. Thus it would only return non-archived results. This is a problem, because we want the frontend to be able to ask for the contents of the Trash or an archived subcollection without explicitly asking for archived results. We just want to treat these like normal collections.
+
+The change made to support this was to just default `archived` to the `archived` status of the collection itself. If you're asking for the items in an archived collection, you'll only get archived results. If you're asking for the items in a non-archived collection, you'll only get unarchived results.
+
+This is, for normal collections, the same thing as just returning all results. But see the section on namespaced collections for details on why we needed this slightly awkward default.
+
+No change - this endpoint still takes an `archived` parameter. When `archived=true`, we return the Trash collection, as it is in the root collection. Otherwise, we don't.
+
+* Make Trash Usable - UI (#41666)
+
+* Remove Archive Page + Add `/trash` routing (#42226)
+
+* removes archive page and related resources, adds new /trash route for trash collection, adds redirects to ensure consistent /trash routing instead of collection path
+
+* fixes unit + e2e tests, corrects links generated for trash collection to use /trash over /collect/:trashId route
+
+* updates comment
+
+* Serialize trash correctly (#42345)
+
+Also, create the Trash in a migration rather than on startup. Don't set a specific trash collection.id, instead just select based on the `type` when necessary.
+
+* Fix collection data for trashed items (#42284)
+
+* Fix collection IDs for trashed items
+
+When something is in the trash, we need to check permissions on the
+`trashed_from_collection_id` rather than the `collection_id`. We were
+doing this. However, we want the actual collection data on the search
+result to represent the actual collection it's in (the trash). I added
+the code to do this, a test to make sure it works as intended, and a
+comment to explain what we're doing here and why.
+
+* Refactor permission for trashed_from_collection_id
+
+Noah pointed out that the logic of ""what collection do I check for
+permissions"" was getting sprinkled into numerous places, and it felt a
+little scary. In fact, there was a bug in the previous implementation.
+If you selected a collection with `(t2/select [:model/Collection ...])`,
+selecting a subset of columns, and *didn't* include the
+`trashed_from_collection_id` in that set of columns, then called
+`mi/can-write?` on the result, you'd get erroneous results.
+Specifically, we'd return `nil` (representing the root collection).
+
+I think this is a reasonable fix, though I'm pretty new to using fancy
+multimethods with `derive` and such. But basically, I wanted a way to
+annotate a model to say ""check these permissions using
+`:trashed_from_collection_id` if the item is archived."" And in this
+case, we'll throw an exception if `:trashed_from_collection_id` is not
+present, just like we currently throw an exception if `:collection_id`
+is not present when checking permissions the normal way.
+
+* Move existing archived items to the trash (#42241)
+
+Move everything that's archived directly to the trash. It's not ideal
+because we're wiping out the existing collection structure, but the
+existing Archive page also has no collection structure.
+
+* lint fixes from rebase
+
+* Fix backend tests (#42506)
+
+`can_write` on collection items was wrong because we didn't have a
+`trashed_from_collection_id` - the refactor to ensure we didn't make
+that mistake worked! :tada:
+
+* Add an /api/collections/trash endpoint (#42476)
+
+This fetches the Trash in exactly the same way as if we'd fetched it
+with `/api/collection/:id` with the Trash ID. I hadn't realized that the
+frontend was doing this with the previously hardcoded Trash ID.
+
+* Make Trash Usable - Dynamic Trash Collection Id (#42532)
+
+* wip
+
+* fixes hardcoded reference to trash id in sidebar
+
+* remove TRAHS_COLLECTION
+
+* fixes line and e2e tests
+
+* fix invert logic mistake and fixes lint
+
+* Make Trash Usable - Search Filter UI (#42402)
+
+* adds filtering for archived items on the search page
+
+* fix typing mistake
+
+* Make Trash Usable - Bug Bash 1 (#42541)
+
+* disables reordering columns in archived questions, disables modifying archived question name in question header, collection picker no longer defaults to archived item, keeps trashed collection from appearing collection picker search results, shops showing empty area in trashed dashboard info sidebar, disables uploading csvs to trashed collections
+
+* impls pr feedback
+
+* fix e2e failure
+
+* Localize the name of the Trash (#42514)
+
+There are at least two spots where we can't just rely on the
+after-select hook, and select the collection name directly from the
+database: the Search and Collection API.
+
+In these cases we need to call `collection/maybe-localize-trash-name`,
+which will localize the name if the passed Collection is the Trash
+collection.
+
+* Update migration IDs
+
+Migration IDs need to be in order.
+
+* Fix failing mariadb:latest test (#42608)
+
+Hooooly cow. Glad to finally track this down. The issue was that
+booleans come back from MariaDB as NON BOOLEANS, and clojure says 0 is
+truthy, and together that makes for FUN TIMES.
+
+We need to turn MariaDB's bits to booleans before we can work with them.
+
+* Make Trash Usable: Add `can_restore` to API endpoints (#42654)
+
+Rather than having two separate implementations of the `can_restore`
+hydration for cards and dashboards, I set up automagic hydration for the
+`trashed_from_collection_id`. Then the hydration method for
+`can_restore` can just first hydrate `trashed_from_collection` and then
+operate based on that.
+
+* fix can_restore for collections trashed from root
+
+* Fix `trashed_from_location` for trashed subcols
+
+We were setting `trashed_from_location` on subcollections to the
+`trashed_from_location` of the ancestor that was trashed - which is
+wrong.
+
+This would have caused bugs where collections would be restored to the
+root collection, regardless of where they were originally trashed from.
+
+---------
+
+Co-authored-by: Sloan Sparger <sloansparger@gmail.com>
+
+* Fix Trash rollbacks (#42710)
+
+* Fix Trash rollbacks
+
+There were a few errors in my initial implementation.
+
+First, we can't simply assume that `trashed_from_location` and
+`trashed_from_collection_id` are set for anything in the archive. They
+should be set for things *directly* trashed, but not for things trashed
+as part of a collection.
+
+Therefore, we need to set `location` and `collection_id` to something
+like ""if the item is in the trash, then the `trashed_from` - otherwise,
+don't modify it"".
+
+Second, because `trashed_from_collection_id` is not a foreign key but
+`collection_id` is, we have a potential problem. If someone upgrades,
+Trashes a dashboard, then Trashes and permanently deletes the collection
+that dashboard _was_ in, then downgrades, how do we move the dashboard
+""back""? What do we set the dashboard's `collection_id` to?
+
+The solution here is that when we downgrade, we don't actually move
+dashboards, collections, or cards out of the Trash collection. Instead
+we just make Trash a normal collection and leave everything in it.
+
+* Make Trash Usable - Bug Bash 2 (#42787)
+
+* wip
+
+* fixes access to property on null value
+
+* pr clean up
+
+* more clean up
+
+* Fix up tests
+
+- permissions will check the archived from location. So recents need to
+select :report_card.trashed_from_collection_id and
+:dash.trashed_from_collection_id to satisfy mi/can-read?
+- some commented out code with `(def wtf (mt/user-http-request
+...))`. Restore tests.
+- probably commented out because the recent views come back in an order
+but we don't care about the order. And it was asserting against an
+ordered collection. Just go from [{:id <id> :model <model>} ...] to a
+map of {<id> <model>} and then our comparison works fine and is not
+sensitive to order.
+
+* put try/finally around read-only-mode
+
+ensure the setting read-only-mode! to false happens in a finally
+block. Also, set read-only-mode to false in
+
+```clojure
+(deftest read-only-login-test
+  (try
+    (cloud-migration/read-only-mode! true)
+    (mt/client :post 200 ""session"" (mt/user->credentials :rasta))
+    (finally
+      (cloud-migration/read-only-mode! false))))
+```
+
+But worryingly, I think we have a lurking problem that I'm not sure why
+we haven't hit yet. We run tests in parallel and then put all of the
+non-parallel tests on the same main thread. And when one of these puts
+the app in read-only-mode, the parallel tests will fail. HOPEFULLY since
+they are parallel they won't be hitting the app-db necessarily, but
+there could be lots of silly things that break.
+
+---------
+
+Co-authored-by: John Swanson <john.swanson@metabase.com>
+Co-authored-by: dan sutton <dan@dpsutton.com>"
+Phoomparin Mano,heypoom,2024-05-17 17:16:42+00:00,"feat(sdk): document theming options in readme (#42784)
+
+* add font size example
+
+* feat(sdk): document theming options in readme"
+Raphael Krut-Landau,rafpaf,2024-05-17 19:09:19+00:00,Fix BucketPickerPopover test (#42811)
+Raphael Krut-Landau,rafpaf,2024-05-17 19:13:15+00:00,Remove dead code (#42823)
+Raphael Krut-Landau,rafpaf,2024-05-17 19:13:37+00:00,New copy for strategyform (#42815)
+Raphael Krut-Landau,rafpaf,2024-05-17 19:30:47+00:00,rebase (#42808)
+Uladzimir Havenchyk,uladzimirdev,2024-05-17 19:41:41+00:00,"Add missing tests for user-level filter state in dashboards (#42826)
+
+* Add missing tests for user-level filter state in dashboards
+
+* Update e2e/test/scenarios/dashboard-filters/dashboard-filters-auto-apply.cy.spec.js
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+---------
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Kamil Mielnik,kamilmielnik,2024-05-17 19:53:29+00:00,"Data picker (#41175)
+
+* Fix nil schema in /api/table/:id/query_metadata
+
+* Fix nil schema in /api/table/:id/query_metadata
+
+* Fix nil schema in /api/table/:id/query_metadata
+
+* Fix nil schema in /api/table/:id/query_metadata
+
+* Fix nil schema in /api/table/:id/query_metadata
+
+* Revert ""Fix nil schema in /api/table/:id/query_metadata""
+
+This reverts commit 38ac0923350db54966d831a456fceb339315e6d8.
+
+* Revert ""Fix nil schema in /api/table/:id/query_metadata""
+
+This reverts commit 2b8fe78ed4039c82c665834904c13fd4a5263c90.
+
+* Revert ""Fix nil schema in /api/table/:id/query_metadata""
+
+This reverts commit 219506f0e014b046844a726302eb2f2ea8457708.
+
+* Revert ""Fix nil schema in /api/table/:id/query_metadata""
+
+This reverts commit 9430478bdf7d075594ef1a13c81714779afec871.
+
+* Revert ""Fix nil schema in /api/table/:id/query_metadata""
+
+This reverts commit 8c6cdd9068db81c0de24998faf5f9bce80fd820c.
+
+* Table Picker (#40509)
+
+* Generic types
+
+* Generic types
+
+* Generic types + make generateKey a prop
+
+* Generic types
+
+* Extract AutoScrollBox.styled.tsx
+
+* Move AutoScrollBox to a separate directory
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Unhookify searchFilter
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Generic types
+
+* Finish dealing with a cast
+
+* Destructure import
+
+* Inline type
+
+* Generic types
+
+* Remove cast
+
+* Remove commented code
+
+* Remove redundant fallback
+
+* Move CollectionPicker out of EntityPicker
+
+* Avoid as unknown
+
+* Remove TODOs
+
+* Rename TisFolder to IsFolder
+
+* Fix any
+
+* Fix anys
+
+* Remove NestedItemPicker's storybook
+
+* Remove a cast
+
+* Remove a cast
+
+* Remove a cast
+
+* Revert ""Remove a cast""
+
+This reverts commit b762d0f07692fa010ef752dd114ba8f1e350f0cb.
+
+* Use extends SearchModelType instead of extends string everywhere
+
+* Revert ""Use extends SearchModelType instead of extends string everywhere""
+
+This reverts commit 708190d63ed61e0a4d36e560b9c6ef630982cb5d.
+
+* Fix SearchResult[""available_models""] type
+
+* Handle options.allowCreateNew
+
+* Add missing description attribute to Database type
+
+* Move allowCreateNew to CollectionPickerOptions
+
+* Add missing description attribute in Database mock
+
+* Add types
+
+* Add TableList component
+
+* Add SchemaList component
+
+* Fix naming
+
+* Add DatabaseList component
+
+* Add NotebookDataItemPickerResolver
+
+* Fix typing
+
+* Add TablePicker and NotebookDataPickerModal
+
+* Update types
+
+* Fix types
+
+* Add folder type
+
+* Fix initial state
+
+* Update title
+
+* Make query model-dependent
+
+* Render tables
+
+* Fix schema icon
+
+* Adjust key generation
+
+* Rename utilts to utils
+
+* Use ItemList error prop
+
+* Use value prop
+
+* Rename NotebookDataPickerModal to DataPickerModal
+
+* Automatically open datapicker if there is no value
+
+* Highlight current item
+
+* Rename value to initial value
+
+* Fix item highlighting
+
+* Rework TablePicker state
+
+* Leave TODOs for names
+
+* Fix selecting items
+
+* Fix highlighting selected item
+
+* Hide confirmation button
+
+* Add fetchMetadata to tableApi
+
+* Fix Table['schema'] type
+
+* Fetch table metadata upon selection
+
+* Remove options from DataPickerModal
+
+* Fix collectionId typing in Question
+
+* Add collectionId prop
+
+* Remove title prop
+
+* Add todo
+
+* Fix confirmation button
+
+* Remove old DataSourceSelector
+
+* Bring back useSchemaListQuery
+
+* Fix crash
+
+* Fix picker not opening
+
+* Hide dbs list and schemas list if there's only 1
+
+* Remove unused ref
+
+* Remove unused DataPickerListResolver
+
+* Remove unused types
+
+* Change conditional rendering to allow for loading state
+
+* Revert collection-related changes
+
+* Use RTK
+
+* Avoid using stale data
+
+* Fix highlighted db
+
+* Remove todo
+
+* Remove unused type
+
+* Remove useSchemaListQuery
+
+* Rename Value to TablePickerValue
+
+* Move isValueEqual to utils and rename it to isTablePickerValueEqual
+
+* Improve TODO
+
+* Remove unused options prop
+
+* Introduce tablePickerValueFromTable
+
+* Avoid having 2 table metadata requests
+
+* Update comment
+
+* Update comment
+
+* Remove unused function
+
+* Allow null in tablePickerValueFromTable
+
+* Extract helpers
+
+* Rename schemaId to schemaName
+
+* Remove description
+
+* Improve naming
+
+* Simplify types
+
+* Add explanatory comments
+
+* Fall back to empty state when there are no items
+
+* Account for null schemas
+
+* Account for null schema in tests
+
+* Revert ""Account for null schema in tests""
+
+This reverts commit 0c96d1cb8807205913ea5b7c09cfba428e01bdd2.
+
+* Revert ""Account for null schemas""
+
+This reverts commit 4f5c4e99ee9af74499c238f480b9a36d985de94f.
+
+* Improve typing around schema name
+
+* Refactor auto-select logic
+
+* Refactor
+
+* Avoid comment
+
+* Make useAutoSelectOnlyItem generic
+
+* Do not enforce presence of at least 1 tab with TypeScript
+
+* Fix types
+
+* Remove obsolete comment
+
+* Post-merge fix
+
+* Integrate QuestionPicker in DataPicker (#42268)
+
+* Add question and model pickers to Data Picker
+
+* Add model attribute to data picker value
+
+* Introduce DataPickerValue
+
+* Start with the right tab when opening data picker modal
+
+* Do not use stale sourceCard value
+
+* Fix switching tabs when a table is selected
+
+* Use undefined instead of null for consistency
+
+* Do not show models/questions tabs when there are no models/questions
+
+* Fix selecting models/questions in search results
+
+* Remove dead code
+
+* Remove dead code
+
+* Ignore selecting collections
+
+* Refactor useHasModels and useHasQuestions into useAvailableData
+
+* Use models param to speed up the query
+
+* Do not require `onConfirm` prop in `EntityPickerModal` (#42317)
+
+* Make onConfirm prop optional
+
+* Add a test for onConfirm prop assertion
+
+* Table does not appear selected in single-schema dbs (#42336)
+
+* Convert useAutoSelectOnlyItem arguments to param object
+
+* Disable auto-selection when there already is a selection
+
+* Use `DataPicker` in `JoinTablePicker` (#42330)
+
+* Refactor DataStep:
+- rename handleTableSelect to handleTableChange
+- extract value and memoize it
+
+* Remove redundant fragment
+
+* Add new DataPicker props
+
+* Use DataPickerModal in JoinTablePicker
+
+* Remove initialTab prop since the default tab is always the models tab anyway
+
+* Limit table selection to particular database
+
+* Limit search results to a given database
+
+* Support databaseId in useAvailableData
+
+* Filter collection items by databaseId
+
+* Use databaseId prop only for CollectionItemList component
+
+* Fix types
+
+* Fix filtering
+
+* Use useLatest for onChange
+
+* Fix typing
+
+* Introduce shouldShowItem and use it instead of databaseId prop
+
+* Improve PickerInfo type
+
+* Use MLv2 to generate DataPickerModal value in JoinTablePicker
+
+* Fix title
+
+* Add isModel to TableDisplayInfo
+
+* Add a hack to populate query metadata with info that table is a model
+
+* Remove NewQuestionView & QuestionDataSelector (#42562)
+
+* Temporarily disable recents tab in the data picker
+
+* Update Data Picker tests (#42565)
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Fix metadata loading
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test and make it pass
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Use entityPickerModal() instead of modal()
+
+* Use entityPickerModal() instead of modal()
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Revert change that broke tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Remove test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Rename createDatabaseIdItemFilter to createShouldShowItem
+
+* Update test
+
+* Update and skip a test
+
+* Remove test
+
+* Update tests
+
+* Update tests
+
+* Update tests
+
+* Remove test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Extract utils
+
+* Use helpers
+
+* Extract helpers
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Filter out collections that do not have card or dataset
+
+* Improve filtering
+
+* Always show root and personal collections, see https://github.com/metabase/metabase/issues/42687
+
+* Remove failing assertion
+
+* Update tests
+
+* Use entityPickerModalTab
+
+* Accept strings in pickEntity
+
+* Use entityPickerModalLevel
+
+* Use entityPickerModalTab
+
+* Use entityPickerModalTab
+
+* Update tests
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Fix assertion
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update tests
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update tests
+- ensure database list gets loaded like in a real app
+
+* Update test
+
+* Update test
+
+* Integrate Recents tab in Data Picker (#42821)
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Fix metadata loading
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test and make it pass
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Use entityPickerModal() instead of modal()
+
+* Use entityPickerModal() instead of modal()
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Revert change that broke tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Remove test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Rename createDatabaseIdItemFilter to createShouldShowItem
+
+* Update test
+
+* Update and skip a test
+
+* Remove test
+
+* Update tests
+
+* Update tests
+
+* Update tests
+
+* Remove test
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Extract utils
+
+* Use helpers
+
+* Extract helpers
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Update test
+
+* Filter out collections that do not have card or dataset
+
+* Improve filtering
+
+* Always show root and personal collections, see https://github.com/metabase/metabase/issues/42687
+
+* Remove failing assertion
+
+* Update tests
+
+* Use entityPickerModalTab
+
+* Accept strings in pickEntity
+
+* Use entityPickerModalLevel
+
+* Use entityPickerModalTab
+
+* Use entityPickerModalTab
+
+* Update tests
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Fix assertion
+
+* Update test
+
+* Update tests
+
+* Update test
+
+* Update tests
+
+* Update tests
+
+* Update test
+
+* Update test
+
+* Update tests
+- ensure database list gets loaded like in a real app
+
+* Update test
+
+* Enable recents tab and update tests
+
+* Update test
+
+* Update tests
+
+* Add Recents-related assertions
+
+* Update test
+
+* Clean up mocks
+
+---------
+
+Co-authored-by: Alexander Polyankin <alexander.polyankin@metabase.com>"
+Oisin Coveney,oisincoveney,2024-05-17 20:24:48+00:00,"Convert RefreshWidget to Mantine, CSS modules, and TS (#42768)"
+Nemanja Glumac,nemanjaglumac,2024-05-17 20:26:10+00:00,"Drop the ""frozen"" frontend install during build when in CI (#42771)"
+Denis Berezin,deniskaber,2024-05-17 20:40:28+00:00,"Add custom theming support for SDK InteractiveQuestion component (#42663)
+
+* Add proper brand colors to drills menu
+
+* Add theming for filters and drills
+
+* Fix css vars
+
+* Fix table css
+
+* Add SDK theme colors interface and remapping
+
+* Fix dashboard brand color issue
+
+* Fix theme colors interface
+
+* Fix default theme table cell background
+
+* Fix typo
+
+* Fix for qb filters panel custom border"
+Ngoc Khuat,qnkhuat,2024-05-17 21:06:21+00:00,Add task history status (#42372)
+Romeo Van Snick,romeovs,2024-05-17 21:23:03+00:00,"Scroll to created column when extracting or combining columns in chill mode (#42650)
+
+* Set scrollToLastColumn ui control from column extract action
+
+* Scroll to last column when the uiControl is set
+
+* Scroll to last column when combining a column
+
+* Scroll to last column when combining a column via the + shortcut
+
+* Scroll to last column when extracting a column via the + shortcut
+
+* Remove all references to settingsSyncOptions
+
+* Check that the column is added at the end
+
+* Disable scrollToLastColumn once used
+
+* Add test that verifies scrollToLastColumn ui control has been reset"
+Oisin Coveney,oisincoveney,2024-05-17 21:44:09+00:00,Review suggestions from #42768 (#42830)
+Nemanja Glumac,nemanjaglumac,2024-05-17 23:01:23+00:00,Remove GoogleAnalytics specific logic from the FE (#42827)
+Ryan Laurie,iethree,2024-05-17 23:54:33+00:00,Improve db connection setup test (#42838)
+Nick Fitzpatrick,npfitz,2024-05-18 00:10:56+00:00,fixing e2e flakes in search-snowplow and recently-viewed specs (#42840)
+Sloan Sparger,sloansparger,2024-05-18 00:52:03+00:00,"Fix homepage flaky test (#42839)
+
+* fixes homepage flaky test
+
+* take 2
+
+* better fix"
+Noah Moss,noahmoss,2024-05-18 01:07:31+00:00,Fix schema error in recent views query (#42844)
+metabase-bot[bot],metabase-bot[bot],2024-05-18 02:22:00+00:00,"Update Readme version references and published npm version to 0.1.4 (#42852)
+
+Co-authored-by: Metabase bot <metabase-bot@metabase.com>"
+Denis Berezin,deniskaber,2024-05-18 03:29:12+00:00,Restore default styles for subtle button (#42854)
+Jeff Bruemmer,jeff-bruemmer,2024-05-18 03:59:36+00:00,docs - csv upload replace (#42529)
+John Swanson,johnswanson,2024-05-18 04:14:01+00:00,Update API Changelog (#42864)
+Cal Herries,calherries,2024-05-18 04:43:22+00:00,Use `db` argument in `driver/database-supports?` for uploads (#42851)
+John Swanson,johnswanson,2024-05-18 05:36:56+00:00,"Add a type to collections returned by search (#42535)
+
+Under:
+
+- `item.type`
+
+- `item.collection.type`, and
+
+- `item.collection.effective_ancestors.*.type`"
+Uladzimir Havenchyk,uladzimirdev,2024-05-18 17:03:29+00:00,"Exclude jspdf and html2canvas from the bundle (#42536)
+
+* Exclude jspdf and html2canvas from the bundle
+
+* cleanup"
+Ryan Laurie,iethree,2024-05-20 20:32:55+00:00,"Make Metabot Cool Again (#42797)
+
+* Make Metabot Cool Again
+
+* update tests"
+Ryan Laurie,iethree,2024-05-20 22:15:42+00:00,Remove utm from source plan in upsell links (#42890)
+Ryan Laurie,iethree,2024-05-20 23:04:33+00:00,"Improve db setup tests more (#42899)
+
+* improve db setup test
+
+* improve embedding test"
+Denis Berezin,deniskaber,2024-05-20 23:57:49+00:00,"fix(sdk): Use theme font in charts and tooltips (#42855)
+
+* Allow charts font override in SDK
+
+* Fix default not configured font"
+Sloan Sparger,sloansparger,2024-05-21 00:23:02+00:00,asserts values match current expectations of values which hopefully solves race conditions that might be happening (#42905)
+Sloan Sparger,sloansparger,2024-05-21 00:23:52+00:00,"Disable popular items e2e home page test in OSS (#42896)
+
+* disables testing for home page popular items in oss
+
+* Update e2e/test/scenarios/onboarding/home/homepage.cy.spec.js
+
+Co-authored-by: Ryan Laurie <30528226+iethree@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Ryan Laurie <30528226+iethree@users.noreply.github.com>"
+Uladzimir Havenchyk,uladzimirdev,2024-05-21 00:43:58+00:00,Drop props spreading to DashboardGrid (#42875)
+Roman Abdulmanov,NevRA,2024-05-21 00:44:49+00:00,revert embed board (#42911)
+Kamil Mielnik,kamilmielnik,2024-05-21 00:47:00+00:00,Create the new Metric entity (Metrics v2) (#38457)
+metamben,metamben,2024-05-21 02:27:40+00:00,"Fix comment (#42906)
+
+* Fix comment"
+Jeff Bruemmer,jeff-bruemmer,2024-05-21 03:17:37+00:00,small edits (#42923)
+Sloan Sparger,sloansparger,2024-05-21 03:19:05+00:00,Remove flaky / redundant e2e test (#42920)
+Jesse Devaney,JesseSDevaney,2024-05-21 03:41:09+00:00,fix trend charts spacing (#42860)
+John Swanson,johnswanson,2024-05-21 05:20:05+00:00,"Correct type for `report_card.collection_preview` (#42919)
+
+In v49, we converted all boolean types to `bit(1)` on mysql/mariadb. It
+looks like we missed this one, so when you `GET` a card it has
+`""collection_preview"": 1`. Then we get an error when trying to save,
+because `collection_preview` should be a boolean.
+
+I verified that after this migration, `GET`ting a card results in a
+boolean `""collection_preview""`."
+Sloan Sparger,sloansparger,2024-05-21 06:33:19+00:00,"Split out Search e2e tests and Record Pre-Release Sanity Checks with Replay (#42933)
+
+* add replay recordings to sanity check e2e tests during pre-release workflow
+
+* split out search tests from onboarding folder
+
+* parallelize pre-release testing
+
+---------
+
+Co-authored-by: Ryan Laurie <iethree@gmail.com>"
+metamben,metamben,2024-05-21 13:10:26+00:00,Fix flaky adjust-mixed-multi-source-test (#42926)
+Kamil Mielnik,kamilmielnik,2024-05-21 13:37:45+00:00,"Cover `Offset()` in custom expressions with e2e tests (#42756)
+
+* [MBQL lib] Reject broken uses of `offset` in expressions, filters (#42662)
+
+- Using `offset` in custom expressions is supported only when there is
+  an order-by defined on that stage.
+- Using `offset` in custom filters is not supported at all, currently.
+
+* Support `Offset()` in custom columns [frontend] (#42326)
+
+* Only nest expressions referenced in breakouts or aggregations
+
+* Support Offset() as expression with no breakouts
+
+* Test fixes :wrench:
+
+* Oracle test update
+
+* Improved Oracle test
+
+* Test update :wrench:
+
+* Fix busted test
+
+* Add naive support for Offset() in expressions
+
+* Introduce MBQLClauseFunctionReturnType
+
+* Add ""window"" to MBQLClauseFunctionReturnType and use it for the offset function
+
+* Handle offset type inference
+
+* Remove unused export
+
+* Use ""expression"" instead of ""window"" return type
+- Rename identifiers in isCompatible
+- Make isCompatible accept a clause object instead of just the type
+- Handle offset as a special case in isCompatible
+
+* Use any type
+
+* Rename expectedArgumentType to expectedType
+
+* Format code
+
+* Sort types
+
+* Do not suggest offset function in filters
+
+* Fix offset not working in case
+
+* Revert ""Do not suggest offset function in filters""
+
+This reverts commit e63790b78010a6ebdb9f7452afadc8d00e2b3e99.
+
+* Fix order of adjustments
+
+---------
+
+Co-authored-by: Cam Saul <github@camsaul.com>
+Co-authored-by: Cam Saul <1455846+camsaul@users.noreply.github.com>
+
+* Disable offsets in filters expressions
+
+* Group existing aggregations-specific tests
+
+* Remove repro for a closed issue
+
+* Use findByText instead of contains
+
+* Add a test for filter expressions
+
+* Add a test for aggregation expressions suggestions
+
+* Disable offsets in filters expressions (#42755)
+
+* Add a test for custom column suggestions
+
+* Add ""typing"" to enterCustomColumnDetails
+
+* Use enterCustomColumnDetails, improve assertions
+
+* Add more assertions
+
+* Optimize queries
+
+* Add typing for offset expressions
+
+* Add a repro for metabase#42764
+
+* Add a TODO
+
+* Add a TODO
+
+* Add a TODO
+
+* Use NumericLiteral
+
+* Post-merge fixes
+
+* Update test
+
+* Add tests for other custom expressions
+
+* Test drills
+
+* Format code
+
+* Update test name
+
+* Add an assertion
+
+* Add assertions for the preview
+
+* Unskip fixed issue
+
+---------
+
+Co-authored-by: Braden Shepherdson <braden@metabase.com>
+Co-authored-by: Cam Saul <github@camsaul.com>
+Co-authored-by: Cam Saul <1455846+camsaul@users.noreply.github.com>"
+Kamil Mielnik,kamilmielnik,2024-05-21 13:38:18+00:00,"Repro #36631 - A ""Default period"" is appended for Date columns within Custom Columns when using Question as Source Data (#42876)
+
+* Add a repro for #36631
+
+* Do not wrap id"
+Uladzimir Havenchyk,uladzimirdev,2024-05-21 16:48:02+00:00,Drop props spreading to DashboardSidebars (#42907)
+Alexander Polyankin,ranquild,2024-05-21 19:31:22+00:00,Cleanup DataPicker initialization (#42916)
+Cal Herries,calherries,2024-05-21 20:46:02+00:00,CSV uploads: Add test for appending duplicate data (#42918)
+Cal Herries,calherries,2024-05-21 20:46:44+00:00,[forward-port] More upload test changes for clickhouse (#42531) (#42715)
+Kamil Mielnik,kamilmielnik,2024-05-21 22:24:34+00:00,"Fix failing offset tests (#42944)
+
+* Fix failing offset tests
+
+* Fix flaking test"
+Romeo Van Snick,romeovs,2024-05-22 00:18:31+00:00,"Fix icon colors in column picker (#42945)
+
+* Make icons 16px in data picker
+
+* Use text-light in DataPicker to match other icons"
+Kamil Mielnik,kamilmielnik,2024-05-22 00:26:15+00:00,"Fix - Admin Email does not Display on Question Timeout Page (#42937)
+
+* Extract EmailAdmin and add tests for it
+
+* Rename EmailAdmin to AdminEmail
+
+* Remove redundant async
+
+* Add a test case for no email"
+Phoomparin Mano,heypoom,2024-05-22 00:29:24+00:00,"feat(sdk): apply user interface color overrides to the sdk (#42834)
+
+* feat(sdk): apply ui color overrides to the sdk
+
+selector state
+
+set global embedding colors
+
+rename the method
+
+* test(sdk): add unit test on color overrides"
+Alexander Polyankin,ranquild,2024-05-22 00:33:25+00:00,"Revert ""Fix failing offset tests"" (#42961)
+
+* Revert ""Fix failing offset tests (#42944)""
+
+This reverts commit fca30b1ae5ef75bbaead824f27c27a3f1694c67c.
+
+* Fix e2e"
+Sloan Sparger,sloansparger,2024-05-22 00:50:57+00:00,Fix `c` method of `ttag` not showing strings as tagged in debug mode #42965
+Denis Berezin,deniskaber,2024-05-22 01:31:17+00:00,"fix(sdk): Various fixes for InteractiveQuestion theming (#42932)
+
+* Fixes for InteractiveQuestion theming
+
+* Update readme
+
+* Fix for unset filter theme color
+
+* Fix unit tests
+
+* Fix unit tests"
+Nick Fitzpatrick,npfitz,2024-05-22 01:39:59+00:00,"changing button height and CP input placeholder (#42770)
+
+* changing button height and CP input placeholder
+
+* adjusting search button size
+
+* translate new placeholder"
+metamben,metamben,2024-05-22 01:58:47+00:00,"Migrate druid metrics-inside-aggregation-clauses-test to druid-jdbc (#42653)
+
+* Migrate druid metrics-inside-aggregation-clauses-test to druid-jdbc
+* Fix test-runner: druid should not exclude druid-jdbc
+* Implement set-parameter and unprepare-value for LocalDateTime for druid-jdbc"
+Jesse Devaney,JesseSDevaney,2024-05-22 02:30:54+00:00,"Fix overly frequent line series dots (#42735)
+
+* hide symbols for charts with too many of them
+
+* update loki
+
+* prevent series dots showing up after manually disabling another series
+
+* update loki snapshots
+
+* refactor conditional
+
+* update loki snapshots"
+Case Nelson,snoe,2024-05-22 02:49:55+00:00,"[Metrics V2] Adjust expression clauses in metric refs (#42962)
+
+Fixes #42360"
+Jeff Bruemmer,jeff-bruemmer,2024-05-22 04:13:17+00:00,docs - command palette (#42397)
+Case Nelson,snoe,2024-05-22 04:20:32+00:00,"[Metrics V2] Backfill viz settings for compatible-series (#42970)
+
+* [Metrics V2] Backfill viz settings for compatible-series
+
+Fixes #42575
+
+The BE should rely on the query when there is no corresponding viz setting.
+If there is no graph.metrics setting, assume that all last-stage aggregations are used.
+No graph.dimensions -> use breakouts.
+
+* Fix tests
+
+* Unskip e2e test
+
+---------
+
+Co-authored-by: Alexander Polyankin <alexander.polyankin@metabase.com>"
+Denis Berezin,deniskaber,2024-05-22 04:34:27+00:00,"feat: Add utm parameters to embedded OSS Metabase footer link (#42968)
+
+* Add utm params to  link
+
+* Fix e2e, add url domain
+
+* Fix e2e"
+bryan,escherize,2024-05-22 05:07:43+00:00,"Fixing a couple Recents API corner cases (#42813)
+
+* handle visibilty_type on tables
+
+- remove def wtf
+- uncomment + fix tests
+
+* make sure parent colls exist on report_cards
+
+- official is a string
+- ensure the database for a recent table exists
+
+* remove def + improve arg name
+
+* docstring
+
+* improve + extract valid parent collection check
+
+* grab the entity's colllection id and use that for the validity test
+
+- This seems like something that should never happen, but I've seen it
+happen. I think it might be possible from a down/up migration.
+
+* fix tests
+
+* fix more tests
+
+* cleanup
+
+* fixing another test
+
+* add error-avoider, to filter bad items in prod instead of throwing
+
+- improve recent view testing for table
+
+* remove wrap (it double prints the value)"
+Emmad Usmani,EmmadUsmani,2024-05-22 05:23:18+00:00,"highlight hovered timeline event (#42969)
+
+* highlight hovered timeline event
+
+* add e2e test
+
+* use TIMELINE_EVENT_DATA_NAME constant
+
+* add test case for clicking icon"
+Ryan Laurie,iethree,2024-05-22 05:49:10+00:00,"add snowplow tracking for upsells (#42955)
+
+* add snowplow tracking for upsells
+
+* add upsell snowplow test
+
+* appease the linter"
+John Swanson,johnswanson,2024-05-22 06:34:16+00:00,"Fix `report_card.collection_preview` in v49 (#42950)
+
+This is a bit painful. I merged this change, but realized we need to
+backport the fix to v49. However:
+
+- we don't want to have two versions of the migration (one with a v49
+id, one with a v50 id) because then if someone upgrades to 50, then
+downgrades to 49, the `rollback` will run and change the type back,
+leading to a bug.
+
+- we don't want to push a v51 changeSet ID to v49 or v50, because we
+give the user a helpful notice when their database needs a downgrade.
+We do this by checking for the latest *executed* migration in the
+database and comparing it to the latest migration that Liquibase knows
+about, and making sure the executed isn't bigger than the known (e.g.
+you can't have executed a v51 migration if it isn't in the local
+migration yaml). That would all work fine, except that then we want to
+tell you how to downgrade your database, and we use the latest-executed
+version for that. So if, for example, someone upgraded from 48 to 49 and
+got a v51 changeset, then downgraded back to 48, they would get an error
+telling them to run the *v51* jar to roll back their DB.
+
+In this case though, I think it's fine to just move the migration around
+to v49, then we can backport it to 49 and 50."
+Cal Herries,calherries,2024-05-22 09:32:48+00:00,Tidy api-changelog.md (#42992)
+Cam Saul,camsaul,2024-05-22 09:56:04+00:00,"`metabase.analyze` API namespace (#42469)
+
+* Squashed commit
+
+* Update config
+
+* Backport the kondo ignore stuff from other PR.
+
+* `metabase.analyze` API namespace"
+Cam Saul,camsaul,2024-05-22 10:44:00+00:00,"`metabase.search` namespace (#42487)
+
+* Search API namespace
+
+* Search API namespace
+
+* Search API namespace
+
+* Fix Kondo warnings
+
+* Fix typo
+
+* Finally solve the MySQL ^:parallel test failures <3
+
+* Make some search tests REPL-friendly
+
+* Did I finally fix `^:parallel` MySQL tests?
+
+* Ok I give up just make the search tests single-threaded for MySQL/MariaDB.
+
+* Revert the stuff to make paralell tests work for MySQL... for now.
+
+* Keep new name
+
+* Revert deps-graph changes
+
+* Remove unused namespaces
+
+* Fix Kondo linter for log/info + format
+
+* Misc fixes :wrench:
+
+* Test fixes :wrench:"
+bryan,escherize,2024-05-22 11:45:50+00:00,the ' makes the doseq do nothing (#42988)
+Romeo Van Snick,romeovs,2024-05-22 15:58:16+00:00,"Limit the height of actions popover (#42946)
+
+* Limit the height of actions popover
+
+* Use Box instead of custom wrapper
+
+* Add rem import"
+Cam Saul,camsaul,2024-05-22 16:23:58+00:00,"Tests for #15131 (#42972)
+
+* Tests for #15131
+
+* Appease Kondo"
+Tim Macdonald,tsmacdonald,2024-05-22 17:44:18+00:00,"Handle native query find-and-replace for queries with card refs (#42939)
+
+* Handle native query find-and-replace for queries with card refs
+
+[Fixes #42582]
+
+c.f. limitiations in #42938
+
+* wee cleanup"
+Uladzimir Havenchyk,uladzimirdev,2024-05-22 20:05:59+00:00,Cleanup annoying console warning from emotion (#42819)
+Braden Shepherdson,bshepherdson,2024-05-22 21:18:27+00:00,"Drivers: Update the driver changelog with new features (#43004)
+
+These were added in #42602 but I neglected to update the changelog.
+Their defaults should serve for most drivers."
+Jeff Bruemmer,jeff-bruemmer,2024-05-22 21:57:46+00:00,docs - download diagnostics (#42930)
+Ryan Laurie,iethree,2024-05-22 21:58:10+00:00,update required checks copy documentation (#43003)
+Case Nelson,snoe,2024-05-23 00:51:32+00:00,"[Metrics V2] Handle clashing expression names when adjusting metrics (#42984)
+
+* [Metrics V2] Handle clashing expression names when adjusting metrics
+
+Fixes #42782
+
+* Address PR review"
+Alexander Polyankin,ranquild,2024-05-23 01:26:23+00:00,Add data source specific icons to data and join steps in the notebook editor (#42982)
+bryan,escherize,2024-05-23 01:51:39+00:00,"Effective location on collection recent items (#43018)
+
+* add effective_location to recent-collection-items
+
+* cleanup"
+Ryan Laurie,iethree,2024-05-23 02:41:17+00:00,"simplify db strategy editor markup (#42986)
+
+* simplify strategy editor markup
+
+* make it work for OSS too 😁"
+Alberto Perdomo,albertoperdomo,2024-05-23 02:46:48+00:00,"Improvements to embedding sdk readme (#43021)
+
+* SDK readme: update available and planned features
+
+* SDK readme: general improvements"
+Nick Fitzpatrick,npfitz,2024-05-23 03:28:08+00:00,"42934 entity picker create collection root (#43005)
+
+* NewCollectionDialog adjustment and unit test
+
+* adding unit test for NewDashboardDialog"
+Sloan Sparger,sloansparger,2024-05-23 04:22:18+00:00,"Update link to docs about ""No self-service"" deprecation (#43038)"
+Alexander Polyankin,ranquild,2024-05-23 05:05:11+00:00,"Load dashcard metadata in parallel with the query (#42953)
+
+* Split card data and query
+
+* Split card data and query
+
+* Split card data and query
+
+* Fix loading state
+
+* Postpone card check
+
+* Postpone card check
+
+* Postpone field check
+
+* Postpone field check
+
+* Postpone field check
+
+* Postpone field check
+
+* Postpone field check
+
+* Add await
+
+* Add await
+
+* Add await
+
+* Add await
+
+* Fix tests
+
+* Fix data loading
+
+* Fix data loading
+
+* Fix data loading
+
+* Fix data loading
+
+* Revert ""Fix data loading""
+
+This reverts commit 2b782b99368f6f8fcdbe0cfa086c8c693d9d3f86.
+
+* Fix data loading
+
+* Fix test
+
+* Fix test
+
+* Fix embedding
+
+* Fix xrays
+
+* Fix xrays"
+bryan,escherize,2024-05-23 06:25:57+00:00,bump saml20 - fix azure SLO (#43022)
+Uladzimir Havenchyk,uladzimirdev,2024-05-23 13:52:17+00:00,Drop props spreading to DashboardHeader (#42887)
+Kamil Mielnik,kamilmielnik,2024-05-23 13:57:27+00:00,"Fix - Empty collections shown in Data Picker (#42959)
+
+* Generate different shouldShowItem for different pickers
+
+* Add repro for #42957
+
+* Update test to use models instead of metrics"
+Alexander Polyankin,ranquild,2024-05-23 14:16:01+00:00,Flaky e2e fix (#43048)
+Kamil Mielnik,kamilmielnik,2024-05-23 15:18:08+00:00,Add a repro for #36508 (#43002)
+Tim Macdonald,tsmacdonald,2024-05-23 15:47:18+00:00,"[ParseSQL] Find-and-replace for snippets (#43011)
+
+* Support F&R for snippets
+
+[Fixes #42648]"
+Tim Macdonald,tsmacdonald,2024-05-23 16:55:29+00:00,"[ParseSQL] Find-and-replace with optional tags (#43013)
+
+* Support find-and-replace with optional tags
+
+[Fixes #42583]"
+Ryan Laurie,iethree,2024-05-23 18:32:02+00:00,Properly show parent DBs in entity picker recents and search (#43016)
+Alexander Polyankin,ranquild,2024-05-23 19:29:50+00:00,"Revert ""Load dashcard metadata in parallel with the query (#42953)"" (#43063)
+
+This reverts commit a0a4a26fdf04dd7378ee38357ab5ad6110f77069."
+Noah Moss,noahmoss,2024-05-23 19:45:02+00:00,Rework popular_items to use recent_views and view_count columns (#43041)
+Kamil Mielnik,kamilmielnik,2024-05-23 19:56:05+00:00,Add repro for #42999 (#43000)
+Chris Truter,crisptrutski,2024-05-23 20:39:52+00:00,Fix a bunch of small typos (#43055)
+Ngoc Khuat,qnkhuat,2024-05-23 20:46:12+00:00,Fix flaky test send-pulses-exceed-thread-pool-test (#43050)
+Nick Fitzpatrick,npfitz,2024-05-23 21:40:37+00:00,"42592 new modal adding database (#42966)
+
+* modal built
+
+* code cleanup, removing unused components
+
+* whitespace shame
+
+* adjusting unit test
+
+* removing px shame"
+Emmad Usmani,EmmadUsmani,2024-05-23 23:58:26+00:00,"refactor scatter plot to separate code path (#43032)
+
+* refactor scatter plot model to separate function
+
+* (2/3) refactor scatter plot option to separate function (#43033)
+
+* use getScatterPlotOption
+
+* use buildEChartsScatterSeries directly
+
+* remove hoveredSeriesDataKey from scatter
+
+* (3/3) improve chart model types (#43034)
+
+* create WaterfallChartModel type
+
+* create ScatterPlotModel type
+
+* rename BaseCartesianChartModel to CartesianChartModel
+
+* simplify chartModel creation in hook"
+metamben,metamben,2024-05-24 01:39:43+00:00,Prevent returning metrics v2 migration backup field (#43087)
+metamben,metamben,2024-05-24 04:29:57+00:00,"Stop returning archived metrics in available metrics (#43031)
+
+* Stop returning archived metrics in available metrics
+* Add archived metric test
+* Migrate legacy metric tests
+* Delete lib/legacy_metric.cljc"
+Alexander Polyankin,ranquild,2024-05-24 04:57:41+00:00,Optimize initial dashboard load (#42901)
+Case Nelson,snoe,2024-05-24 05:39:57+00:00,"[Metrics V2] Port Legacy metric tests and fixes (#43094)
+
+* [Metrics V2] Port Legacy metric tests and fixes
+
+Fixes #43093
+
+* Address pr review"
+Uladzimir Havenchyk,uladzimirdev,2024-05-24 13:19:03+00:00,[UI] Fix styles for disabled Switch (#43091)
+Romeo Van Snick,romeovs,2024-05-24 15:36:39+00:00,"Fix bucket trigger position (#43061)
+
+* Make accordion list item content 100% wide
+
+* Remove unused Dot component
+
+* Move bucket popover trigger to the end of the item
+
+* Revert QueryColumnPicker styles to what they were before adding the info icons
+
+* Fix the height of the bucket picker"
+Romeo Van Snick,romeovs,2024-05-24 19:01:58+00:00,"Fix breakout pivot tether (#43060)
+
+* Limit the height of the breakout popover
+
+* Allow the click action popover to untether to prevent overflowing the screen
+
+* Add reproduction for #43075
+
+* Rename breaktrhough to breakout
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+* Use findAllByTestId
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+* Remove copy pasted question name
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+* Remove unused api intercept
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+---------
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Romeo Van Snick,romeovs,2024-05-24 20:16:01+00:00,Remove fixed height on popover (#43058)
+Nicolò Pretto,npretto,2024-05-24 20:48:57+00:00,"minimal support for multiple values for Access-Control-Allow-Origin (#42888)
+
+* minimal support for multiple origins in security middleware
+
+* if -> when to be more idiomatic
+
+* adds tests for parse-url
+
+* if -> when
+
+* add missing new line in tests
+
+* split the logic of validation in functions
+
+* adds tests for the small functions
+
+* use namespace in tests instead of :refer"
+Uladzimir Havenchyk,uladzimirdev,2024-05-24 22:20:04+00:00,"[Dashboard] Optimize rendering by reducing the number of props passing down to from the very top (#43114)
+
+* Avoid unnecessary re-renderings in dashboard - getEmbeddedParameterVisibility
+
+* Avoid unnecessary re-renderings in dashboard - favicon, page title
+
+* Exclude isLoadingComplete from passing down
+
+* Avoid unnecessary re-renderings in dashboard - metadata
+
+* Drop metadata from Public Dashboard
+
+* Avoid unnecessary re-renderings in dashboard - dashcardData"
+Aleksandr Lesnenko,alxnddr,2024-05-24 22:29:29+00:00,fix bars width when chart has two y-axes (#43100)
+Aleksandr Lesnenko,alxnddr,2024-05-24 22:33:03+00:00,"Revert ""minimal support for multiple values for Access-Control-Allow-Origin (#42888)"" (#43125)
+
+This reverts commit bf6fd9ef25395a1f4cd6f800836bfd536a001c89."
+Raphael Krut-Landau,rafpaf,2024-05-25 00:44:03+00:00,"[Cache] Only show ""Adaptive"" and ""Don't cache"" options on OSS page (#43122)
+
+* Limit options on OSS Admin/Performance page
+
+* simplify
+
+* simplify
+
+* simplify
+
+* divide constants to avoid circular imports
+
+* divide constants to avoid circular imports
+
+* divide constants to avoid circular imports
+
+* simplify
+
+* simplify
+
+* simp
+
+* fix
+
+* simplify
+
+* simplify
+
+* fix test"
+Oisin Coveney,oisincoveney,2024-05-25 01:58:34+00:00,"Convert DashboardControls to TS hooks (#42777)
+
+* Convert DashboardControls to TS hooks
+
+* fix types
+
+* Modify dashboard url params to ensure that we keep hash options that haven't changed
+
+* Fix PublicDashboard and DashboardTabs tests
+
+* Use synced dashboard tabs for automatic dashboard, and use normal tabs for those with DashboardControls
+
+* reduce hash option location changes to only the ones we can change through the UI
+
+* Add comment on state management
+
+* Remove console
+
+* Attempt to solve more tests
+
+* Remove loadDashboardParams as a passed prop
+
+* Fix some tests, but will cause unit test to break
+
+* Change names to reflect actual usage
+
+* Fix lint and type issues
+
+* Add simpler url param control, simplify types, and simplify fullscreen hook
+
+* Add two way binding with url params to attempt to fix tests
+
+* Fix unit test + types
+
+* Move folders and fix imports
+
+* Use Record<string, unknown> for refresh hook
+
+* Remove console.log
+
+* Clear query parameters when ParametersList unmounts
+
+* Add comment
+
+* Revert DisplayTheme changes
+
+* Fix weird reloading problem
+
+* Fix reducers test
+
+* add code comments on selecting the tab once tab data is loaded
+
+* add code comments on unsyncing parameters
+
+* Fix e2e tests, move url reset to tabs context
+
+* Fix e2e tests
+
+* Hotfix
+
+---------
+
+Co-authored-by: Uladzimir Havenchyk <uladzimir.dev@gmail.com>
+Co-authored-by: Phoomparin Mano <poom@metabase.com>
+Co-authored-by: Denis Berezin <denis.berezin@metabase.com>"
+Ryan Laurie,iethree,2024-05-25 02:03:38+00:00,"Hide creation buttons on search and recents tabs (#42977)
+
+* hide creation buttons on search and recents tabs
+
+* update e2e tests"
+Ryan Laurie,iethree,2024-05-25 02:04:02+00:00,Allow recent command palette items with the same name (#43098)
+Nick Fitzpatrick,npfitz,2024-05-25 02:48:02+00:00,"Add media query to search button (#43084)
+
+* add media query to search button
+
+* useSmallScreen hook"
+Alexander Polyankin,ranquild,2024-05-25 03:38:53+00:00,Optimize initial dashboard load - load dashboard metadata in parallel with the query (#43101)
+metamben,metamben,2024-05-25 03:59:27+00:00,Remove unused card related endpoints (#43141)
+metamben,metamben,2024-05-25 05:47:13+00:00,Remove api/legacy-metric (#43133)
+metamben,metamben,2024-05-25 05:57:10+00:00,Migrate metrics with display setting scalar (#43160)
+Cal Herries,calherries,2024-05-25 08:02:31+00:00,Fix connection impersonation when jdbc spec is passed (#43147)
+Alexander Solovyov,piranha,2024-05-27 15:19:06+00:00,[serdes] nested fields should be properly serialized (#43066)
+Kamil Mielnik,kamilmielnik,2024-05-27 18:11:20+00:00,"Enable running tagged tests defined in TS (#43172)
+
+* Update & tag a test
+
+* Run tests also on TS files
+
+* Update mongo test"
+Uladzimir Havenchyk,uladzimirdev,2024-05-27 18:20:25+00:00,Restructure parameters e2e tests - separate auto-wiring (#42820)
+Kamil Mielnik,kamilmielnik,2024-05-27 18:58:52+00:00,"Fix missing React key prop (#43179)
+
+* Fix missing React key prop
+
+* Fix missing React key prop
+
+* Fix order of conditions and make the code easier to follow"
+Uladzimir Havenchyk,uladzimirdev,2024-05-27 19:16:02+00:00,"Avoid unnecessary re-renderings in dashboard - dashboard controls (#43169)
+
+* Avoid unnecessary re-renderings in dashboard - dashboard controls
+
+* Comment"
+Phoomparin Mano,heypoom,2024-05-27 22:07:52+00:00,docs(sdk): update color reference (#43086)
+Cal Herries,calherries,2024-05-28 00:18:46+00:00,"Migrate uploads settings to the db-level behind the scenes, so the uploads DB can be set by the config file (#42869)"
+Case Nelson,snoe,2024-05-28 01:04:14+00:00,"[Metrics V2] Remove legacy-metric metadata (#43134)
+
+* [Metrics V2] Remove legacy-metric metadata
+
+Fixes #43131
+
+* Don't mock metric
+
+* Drop definition_description hydration on legacy metric
+
+* Remove defintion_description tests
+
+* Update src/metabase/lib/metadata.cljc
+
+Co-authored-by: metamben <103100869+metamben@users.noreply.github.com>
+
+---------
+
+Co-authored-by: metamben <103100869+metamben@users.noreply.github.com>"
+Alexander Polyankin,ranquild,2024-05-28 01:39:39+00:00,Omit checks for dashboard metadata when not needed (#43197)
+Cal Herries,calherries,2024-05-28 05:51:53+00:00,Don't allow executing archived pivot-table cards in a public dashboard (#43206)
+Cal Herries,calherries,2024-05-28 11:06:25+00:00,Fix flaky migration rollback test for mysql: metabase.db.custom-migrations-test/migrate-uploads-settings-test-1 (#43210)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-28 15:05:39+00:00,Fix typo (#43194)
+Phoomparin Mano,heypoom,2024-05-28 16:56:01+00:00,"feat(sdk): override chart colors (#42960)
+
+* add color types for chart sdk colors
+
+* simplify chart color types
+
+* chart color mappings
+
+* apply mapping to master branch
+
+* add chart mapping to mantine
+
+* feat(sdk): apply chart accent colors to mantine and color getter
+
+* rename tint and shade
+
+* remove chart color logic from mantine
+
+* add a color mapping test
+
+* docs(sdk): add chart customizations to readme
+
+* add type comments on MappableSdkColor
+
+* cleanup sdk colors"
+Kamil Mielnik,kamilmielnik,2024-05-28 18:23:51+00:00,"Copy question link from dashboard (#42892)
+
+* Remove dead CSS
+
+* Use proper types
+
+* Properly type parameterValues
+
+* Add href prop support to LegendCaption
+
+* Extract getNewCardUrl
+- move getParametersMappedToDashcard
+
+* Use href in CartesianChart
+
+* Handle RowChart
+
+* Handle Funnel
+
+* Format code
+
+* Fix types
+
+* Update first test in title-drill
+
+* Update test
+
+* Update test
+
+* Update tests
+- pass questionId in createQuestionAndDashboard
+
+* Add test for links
+
+* Fix createDashboardWithQuestions
+
+* Add missing click handler
+
+* Fix crash
+
+* Fix typo
+
+* Add a workaround for #42999
+
+* Fix tests
+
+* Fix hover color
+
+* Update comment
+
+* Get rid of mapStateToProps in DashboardGrid
+
+* Invert condition
+
+* Use useCallback instead useMemo
+
+* Do not pass getNewCardUrl down if navigateToNewCardFromDashboard is not present
+- Remove default noop for navigateToNewCardFromDashboard in PublicDashboard
+
+* Remove explicit undefined prop"
+Romeo Van Snick,romeovs,2024-05-28 18:43:10+00:00,"Allow creating new items by inserting comma in MultiAutocomplete (#42824)
+
+* Pass current values to shouldCreate
+
+* Allow comma to create new item
+
+* Simplify getAvailableSelectItems
+
+* Add unit test for MultiAutocomplete input
+
+* Use text instead of Text in paste
+
+* Handle spaces in MultiAutocomplete
+
+* Remove cast
+
+* Reuse last var
+
+* Use haveLastBeenCalledWith over haveBeenCalledWith
+
+* Handle pasting when there is text in the input already
+
+* Accept quote-delimited values
+
+* Add info icon
+
+* Handle tab as a separator
+
+* Fix test cases for unsanitized parseValues
+
+* Add csv-parse
+
+* Use csv-parse to parse values
+
+* Apply the correct color to the info icon
+
+* Rename util to utils
+
+* Break up tooltip text
+
+* Only return unique values
+
+* Be more accepting around quotes in the middle of unescaped values
+
+* provide Buffer for csv-parse package in storybook
+
+* Use browser-friendly version of csv-parse
+
+* Remove unused eslint rule
+
+* Add specital case for csv-parse to jest config
+
+* Put uniqueness check in each state update
+
+* Only add partial value if it is valid
+
+* Only add partial value if it is valid
+
+* Fix test case for FilterValuePicker
+
+* Just use Set
+
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>
+
+* Allow parsing more than one value
+
+* Use isValid everywhere it makes sense
+
+* Add test for RTL languages
+
+---------
+
+Co-authored-by: Aleksandr Lesnenko <alxnddr@gmail.com>
+Co-authored-by: Kamil Mielnik <kamil@kamilmielnik.com>"
+Anton Kulyk,kulyk,2024-05-28 19:15:13+00:00,"Fix rare axis ticks for timeseries axes (#43127)
+
+* Fix typos
+
+* Tweak `maxTicksForChartWidth` calculation
+
+* Update Loki screenshots
+
+* Tweak `PIXELS_PER_CHARACTER`
+
+* Update test"
+Alexander Solovyov,piranha,2024-05-28 19:18:22+00:00,[serdes] unify snowplow analytics in a single event (#43218)
+Oisin Coveney,oisincoveney,2024-05-28 19:20:20+00:00,Convert ParametersList to TS (#42822)
+Uladzimir Havenchyk,uladzimirdev,2024-05-28 20:30:49+00:00,Do not ignore icon prop on the Filter button (#43229)
+Kamil Mielnik,kamilmielnik,2024-05-28 21:08:37+00:00,"Disable offset() in custom columns (#43224)
+
+* Disable offset in custom columns
+
+* Remove .only
+
+* Update CLJS tests"
+Phoomparin Mano,heypoom,2024-05-28 21:17:58+00:00,"feat(sdk): expose color and typography options for smart scalar in embedding SDK (#42915)
+
+* feat(sdk): allow overriding positive and negative values
+
+* docs(sdk): add positive and negative colors to docs
+
+* feat(sdk): add smart scalar font size
+
+* feat(sdk): add smart scalar line height settings
+
+* feat(sdk): get rid of custom embedding mantine theme type
+
+* wip: setup storybook and loki for smart scalar
+
+* fix missing state for rendering visualizations
+
+* docs(sdk): add scalar customizations to readme
+
+* test(sdk): add test cases to loki
+
+* add smart scalar reference image
+
+* use css variables for brand
+
+* make embedding theme options partial
+
+* fix scalar value wrapper line height
+
+* update loki snapshot
+
+---------
+
+Co-authored-by: Aleksandr Lesnenko <alxnddr@gmail.com>"
+Jeff Bruemmer,jeff-bruemmer,2024-05-28 22:04:03+00:00,add 49.12 to list of releases (#43236)
+Jesse Devaney,JesseSDevaney,2024-05-28 22:41:31+00:00,"Implement graceful error handling for trend charts (#43090)
+
+* fix trend charts erroring on latest value being null
+
+* refactor previousRowIndex calculation
+
+* handle errors gracefully
+
+* refactor error messages
+
+* update computeTrend unit tests
+
+* add error handling integration test
+
+* add E2E test to check that errors are gracefully handled
+
+* add integration test to enforce the fix
+
+* fix static viz
+
+* display more meaningful error on static-viz trend charts
+
+* move error handling out of trend chart and fix error handling in Visualization.tsx
+
+* update compute.unit.spec.js
+
+* update SmartScalar.unit.spec.js
+
+* use separate error handler for ErrorBoundary errors in Visualization.jsx
+
+* update E2E test
+
+* update error handling
+
+* update compute.unit.spec.js
+
+* fix react state change error in render function
+
+* show generic error message for ErrorBoundary caught errors
+
+* revert ErrorBoundary changes
+
+* remove generic error border for visualizations"
+Cal Herries,calherries,2024-05-28 23:24:25+00:00,A couple of changes to the sample content (#43200)
+Jeff Bruemmer,jeff-bruemmer,2024-05-29 00:04:47+00:00,docs - app db note (#43239)
+Ryan Laurie,iethree,2024-05-29 00:05:44+00:00,"Use table2 icon for questions (#43095)
+
+* use table2 icon for questions
+
+* update e2e tests"
+Alexander Polyankin,ranquild,2024-05-29 01:36:15+00:00,Fix parameter matching with model columns (#43204)
+Cal Herries,calherries,2024-05-29 02:22:06+00:00,Fix a couple of flaky tests using `with-call-count` (#43248)
+Chris Truter,crisptrutski,2024-05-29 03:04:56+00:00,Upgrade zx from 7.2.3 to 8.1.0 (#43054)
+Ryan Laurie,iethree,2024-05-29 03:45:58+00:00,"entityPicker in technicolor (#43161)
+
+* entityPicker in technicolor
+
+* more precise import
+
+* add unit test"
+Anton Kostenko,Onlinehead,2024-05-29 03:47:23+00:00,Add Git repo SHA to the final image for future tracking (#43260)
+Aleksandr Lesnenko,alxnddr,2024-05-29 04:29:52+00:00,use automation user PAT when creating commits in CI workflows (#43250)
+Raphael Krut-Landau,rafpaf,2024-05-29 04:30:50+00:00,"Tweak appearance of cache page and form (#42856)
+
+* squashed branch
+
+* fix form buttons and formpadding
+
+* fix some tests"
+Ryan Laurie,iethree,2024-05-29 05:53:30+00:00,"Improve models table performance (#43149)
+
+* improve models table performance
+
+* add loading state for large sets of models
+
+* less icon padding"
+metamben,metamben,2024-05-29 06:10:57+00:00,"Return card type in GET /api/table/card__:id/query_metadata (#43203)
+
+* Return card type in GET /api/table/card__:id/query_metadata
+
+Also, stop requesting card metadata in dependent-metadata."
+Raphael Krut-Landau,rafpaf,2024-05-29 10:15:24+00:00,Move model caching form to Admin / Performance (#43143)
+Phoomparin Mano,heypoom,2024-05-29 12:53:20+00:00,support test utilities in sdk import (#43242)
+Nicolò Pretto,npretto,2024-05-29 12:59:33+00:00,"Fix multiple origins support by handling invalid origins (#43170)
+
+* Revert ""Revert ""minimal support for multiple values for Access-Control-Allow-Origin (#42888)"" (#43125)""
+
+This reverts commit a4312230a86c66bceea7c278a85658fadb0bd3a1.
+
+* refactor: extracted parse-approved-origins + supported ""*"" without special case
+
+* fix: parse-approved-origins won't break on multiple spaces in a row
+
+* handles invalid urls in the origins + some formatting
+
+* log instead of throwing in parse-url + simplify the logic in parse-approved-origins
+
+* simplify parse-approved-origins logic by splitting on ""at least one space""
+
+* remove extra boolean call
+
+* approved-origins -> approved-origins-raw to better reflect that it's a raw string
+
+* swap the order of the arguments to `is` in the tests
+
+* indentation 🙃"
+Romeo Van Snick,romeovs,2024-05-29 16:02:53+00:00,"Correctly place ""Add column"" button and allow using it when summarizing (#43189)
+
+* Do not render 'Add column' shortcut when viewing a raw table
+
+* Do not show 'Add column' shortcut when a query has aggregations
+
+* List shortcut guards out of component
+
+* Make 'Add column' icon sticky in the header
+
+* Add test for hiding the column shortcut
+
+* Remove Number wrapper
+
+* Move padding to a constant
+
+* Use actions directly to determine if there are any shortcuts
+
+* Make sure there are expressionable columns for the combine columns shortcut
+
+* Make sure there are extractable columns for the extract column shortcut
+
+* Remove padding when not overflowing
+
+* Do not shadow query in popover components
+
+* Allow combine and extract for raw tables
+
+* Add test for combining summarization columns
+
+* Add test for combining summarization columns
+
+* Use a more precise way of calculating the offset for the 'Add column' button
+
+* Handle null question
+
+* Change to the outline button
+
+* Use actual column widths to calculate total width
+
+* Handle empty mode
+
+* Remove extra measure call
+
+* Move shortcutColumn to separate method and avoid looping over all available actions when possible"
+Romeo Van Snick,romeovs,2024-05-29 18:00:55+00:00,"Update expression suggestion design (#43232)
+
+* Use sentence case for suggestion headers
+
+* Remove suggestion group dividers
+
+* Highlight suggestions when mousing over them
+
+* Remove unused hoverparent
+
+* Remove custom highlighting for icons
+
+* Allow passing color to metadata info icon
+
+* Make suggestions icons have a consisten color
+
+* Update documentation suggestion style
+
+* Add margin to suggestion sections
+
+* Reorder suggestion sections
+
+* Add test for mouse over highlight on suggestions
+
+* Fix test for suggestion footers
+
+* Remove debugging true
+
+* Rename 'Most used functions/aggregations' to 'Common functions/aggregations'
+
+* Highlight suggestion on mouse move
+
+* Only call onHighlightSuggestion if it is not already highlighted
+
+* Use arrow functions
+
+* Fix test for suggestion highlight"
+Kamil Mielnik,kamilmielnik,2024-05-29 21:41:42+00:00,"Time-over-time comparison aggregation helpers (#43081)
+
+* Sort functions
+
+* Add boilerplate for aggregateOffset and tests
+
+* Simplify assertion
+
+* Make basic case work
+
+* Handle name generation
+
+* Do not require ""lib/uuid"" attribute to be present since MLv2 will normalize it under the hood anyway
+
+* Fix typing
+
+* Group tests
+
+* Refactor offsetClause to return a new clause instead of a new query
+- Move offsetClause to expressions.ts
+- Add assertion
+
+* Revert ""Sort functions""
+
+This reverts commit ab9ce2b24ea6bdad5ff7e9bed8ef38d4b5923f00.
+
+* Move tests
+
+* Handle names dynamically
+
+* Shorten a test
+
+* Update comment
+
+* Add TODO
+
+* Update expression types
+
+* Add diffOffsetClause & percentDiffOffsetClause
+
+* Add a test for diffOffsetClause
+
+* Add TODOs
+
+* Add tests for diffOffsetClause and percentDiffOffsetClause
+
+* Unwrap tests
+
+* Add skeleton for new tests
+
+* Refactor first offsetClause tests
+
+* Add tests for names
+
+* Fix case of non-datetime columns
+
+* Handle a case with offset < 1 and no breakouts
+
+* Handle a case with offset < 1 and breakouts on non-datetime column
+
+* Handle a case with offset < 1 and breakouts binned datetime column
+
+* Handle a case with offset < 1 and breakout on non-binned datetime column
+
+* Refactor
+
+* Refactor
+
+* Remove TODO
+
+* Add tests for diffOffsetClause
+
+* Add tests for percentDiffOffsetClause
+
+* Move offset stuff to offset.ts and offset.unit.spec.ts
+
+* Use template string for prefixes
+
+* Use breakoutColumn + isDate to check column type
+
+* Refactor
+
+* Fix error message
+
+* Use displayName instead shortName"
+John Swanson,johnswanson,2024-05-29 22:41:50+00:00,"Allow disabling encryption for settings (#43085)
+
+* Allow disabling encryption for settings
+
+For two settings, we want to disable encryption entirely.
+
+On the way out of the data source, we don't need to worry - the
+decryption is already backwards-compatible with non-encrypted data.
+
+On the way in, things are a bit less straightforward. The core of the
+change is replacing the `t2/deftransform` that *always* runs
+`encryption/maybe-encrypt` on the value with:
+
+- a define-after-select that always tries to decrypt the value (so we
+can handle existing encrypted values in the db)
+
+- a define-before-insert that encrypts the value if the `defsetting`
+told us to, and
+
+- a define-before-update that does the same thing.
+
+For now, set two settings to be never-encrypted: `analytics-uuid` and
+`anon-tracking-enabled`."
+Anton Kulyk,kulyk,2024-05-29 23:14:53+00:00,"Add font fallbacks to charts rendering context (#43315)
+
+* Use `useBrowserRenderingContext` in most charts
+
+* Add font family fallbacks"
+Filipe Silva,filipesilva,2024-05-30 00:11:58+00:00,cloud migration rc1 (#43082)
+Oisin Coveney,oisincoveney,2024-05-30 00:40:30+00:00,feat(sdk): Add static dashboards to embedding SDK (#41973)
+Aleksandr Lesnenko,alxnddr,2024-05-30 00:45:28+00:00,fix edit hash is not removed after editing a dashboard (#43213)
+Braden Shepherdson,bshepherdson,2024-05-30 02:24:22+00:00,"[MBQL lib] Add `preview-query` to truncate a query for Notebook preview (#42836)
+
+Fixes #42831.
+
+Co-authored-by: Alexander Polyankin <alexander.polyankin@metabase.com>"
+Alexander Polyankin,ranquild,2024-05-30 02:44:43+00:00,Do not use MBQL lib for parameter fields in dashboards when possible (#43312)
+Case Nelson,snoe,2024-05-30 04:21:04+00:00,Single metadata endpoint for a dashboard (#43283)
+Sloan Sparger,sloansparger,2024-05-30 06:26:02+00:00,"[WIP] Cloud migration v3 (#43047)
+
+* syncs with BE better for using prod/staging store links
+
+* updates init step, fixes tests
+
+* updates start confirmation modal design
+
+* copy changes
+
+* adjusting unit test
+
+* removing unneeded code
+
+* PR feedback, updating tests
+
+---------
+
+Co-authored-by: Nick Fitzpatrick <nickfitz.582@gmail.com>"
+Cal Herries,calherries,2024-05-30 07:11:34+00:00,Fix not being able to upload to a table if the uploads database has switched (#43026)
+lbrdnk,lbrdnk,2024-05-30 14:31:01+00:00,"Backfill `:effective-type` for coerced fields (#43144)
+
+- Update how base type and effective type is added in query-method :mbql/query.
+- Base type and effective type is added also during the conversion of query-method :query.
+- Adds warning suppression for expressions to places where normalize is 
+  called something that does not conform schme (eg. ->pMBQL :dispatch-type/map called
+  in query-method :query)."
+metabase-bot[bot],metabase-bot[bot],2024-05-30 18:05:48+00:00,"Update Readme version references and published npm version to 0.1.5 (#43035)
+
+Co-authored-by: Metabase bot <metabase-bot@metabase.com>
+Co-authored-by: Mahatthana (Kelvin) Nomsawadi <me@bboykelvin.dev>"
+Phoomparin Mano,heypoom,2024-05-30 18:24:43+00:00,"feat(sdk): pivot table color customizations (#43201)
+
+* feat(sdk): colors for pivot tables
+
+* fix theme type
+
+* feat(sdk): basic pivot table theming
+
+* fix emphasis hover color
+
+* customizable row toggle color
+
+* add storybook story and refactor hover color logic
+
+* add sdk visualization wrapper
+
+* make theme values with defaults internally non-optional but externally optional
+
+* update test to render with providers
+
+* update test wrapper to have height container
+
+* update pivot table loki reference image
+
+* update theme names
+
+* make all theme options optional in the public config
+
+* update readme
+
+* readme update for consistency"
+Alexander Polyankin,ranquild,2024-05-30 18:32:42+00:00,Load metadata before queries (#43354)
+Anton Kulyk,kulyk,2024-05-30 19:04:27+00:00,"Fix relative/internal links in table viz (#43303)
+
+* Use internal Link for relative and same-origin URLs
+
+* Update frontend/test/metabase/lib/formatting.unit.spec.js
+
+Co-authored-by: Uladzimir Havenchyk <125459446+uladzimirdev@users.noreply.github.com>
+
+* Update frontend/test/metabase/lib/formatting.unit.spec.js
+
+Co-authored-by: Uladzimir Havenchyk <125459446+uladzimirdev@users.noreply.github.com>
+
+---------
+
+Co-authored-by: Uladzimir Havenchyk <125459446+uladzimirdev@users.noreply.github.com>"
+Alexander Polyankin,ranquild,2024-05-30 19:37:26+00:00,Fix getMappingOptionByTarget perf (#43339)
+Ryan Laurie,iethree,2024-05-30 20:10:12+00:00,"Combine question e2e reproductions into fewer specs in a different job (#43271)
+
+* combine question reproductions into one spec
+
+* split question reproductions
+
+* split reproductions three ways
+
+* fix sample db id"
+Ryan Laurie,iethree,2024-05-30 20:10:24+00:00,Combine models repro specs (#43342)
+metamben,metamben,2024-05-30 20:46:04+00:00,"Leave viz-setting part as is if normalization fails (#43336)
+
+Fixes #43089."
+Alexander Polyankin,ranquild,2024-05-30 21:24:49+00:00,Force loading metadata before queries (#43369)
+Anton Kulyk,kulyk,2024-05-30 21:30:13+00:00,Revalidate x-axis scale when graph.dimensions change (#43254)
+Uladzimir Havenchyk,uladzimirdev,2024-05-30 21:33:56+00:00,Avoid heavy calculations on dashboard fetching (#43340)
+Uladzimir Havenchyk,uladzimirdev,2024-05-30 22:14:53+00:00,Optimize DashboardHeader rendering by using selector (#43123)
+Romeo Van Snick,romeovs,2024-05-30 22:16:30+00:00,"Minor design updates to multi select (#43292)
+
+* Add color to icon directly
+
+* Remove unused css file
+
+* Only show info icon when the field is focussed
+
+* Use metabase blue for background on value tags
+
+* Use larger font size for value labels
+
+* Make the value labels bold
+
+* Tweak padding on search input
+
+* Move custom MultiAutocomplete styles to MultiSelect overrides and adapt to accept xs size too"
+Anton Kulyk,kulyk,2024-05-30 23:11:59+00:00,"Keep a single null dimension value (#43246)
+
+* Keep a single null dimension value
+
+* Add Loki test
+
+* Remove Loki test
+
+* Throw an error if dataset is empty after filtering
+
+* Extract error message into a constant"
+Sloan Sparger,sloansparger,2024-05-30 23:53:51+00:00,"Prep unit tests for React 18 upgrade (#43375)
+
+* pulls out test changes from react 18 / rtl 15 refactor that are comptable with react 17 / rtl 12
+
+* impls pr feedback"
+bryan,escherize,2024-05-31 00:05:30+00:00,"CRU card events will log recent-views, and get returned through the API (#43037)
+
+* Handles card events for CRU (not D) => recent view
+
+* add tests
+
+* avoid some errors in dev
+
+We expect recent-views/post-process to return nil occasionally (for
+permissions reasons, or more), so let's filter those out instead of
+printing a noisy unactionable warning
+
+* uncomment and fix test
+
+* fix some cypress tests + docs improvements
+
+* update more cypress tests
+
+* more cypress test updates
+
+* adding a card puts it into your recents now
+
+* fix notebook-data-source
+
+* fix notebook-data-source
+
+* fixing more e2e tests
+
+* fix command palette e2e tests
+
+* run prettier
+
+* fix style issue
+
+* update notebook-data-source tests
+
+* update homepage e2e tests
+
+* Next question is in recents, now
+
+* update command palette: skip the first pagedown, since it is a noop
+
+* check the buttons for their respective names
+
+* ensure that the model is there, and no questions are"
+Chris Truter,crisptrutski,2024-05-31 00:24:35+00:00,Update macaw for qualified rename support (#43195)
+Cam Saul,camsaul,2024-05-31 01:22:11+00:00,"Remove Google Analytics driver (#43352)
+
+* Remove Google Analytics driver
+
+* Remove more GA-related tests
+
+* Un-remove tests that aren't related to GA"
+Anton Kulyk,kulyk,2024-05-31 01:58:40+00:00,Fix duplicate filter panels in fullscreen dashboards (#43370)
+metamben,metamben,2024-05-31 02:00:28+00:00,Move models.interface test to the right namespace (#43398)
+Romeo Van Snick,romeovs,2024-05-31 02:23:55+00:00,"Fix timeseries chrome overflow (#42761)
+
+* Avoid overflowing dropdown menus
+
+* Hide most bucket picker items behind a More... button
+
+* Add test for More… button on TimeseriesBucketPicker
+
+* Add color to More... button
+
+* Add test for showing all columns when a lower bucket is picked"
+Ryan Laurie,iethree,2024-05-31 02:50:30+00:00,Fix merge-conflicted e2e tests (#43404)
+Aleksandr Lesnenko,alxnddr,2024-05-31 03:04:32+00:00,"fix waterfall chart timezone issues, bar widths (#41671)"
+Braden Shepherdson,bshepherdson,2024-05-31 03:13:29+00:00,"[drivers] Enable `:regex` feature for MySQL (and MariaDB) (#43269)
+
+These databases previously had impoverished support for regular
+expressions. The `:regex` driver feature requires advanced,
+""Perl-compatible"" regular expressions that can do things like lookahead
+assertions.
+
+- MySQL supports this from 8.0.4; we recommend 8.0.33+.
+- MariaDB supports this from 10.0.5; we recommend 10.4+.
+
+Fixes #43180."
+Aleksandr Lesnenko,alxnddr,2024-05-31 03:59:50+00:00,support stacked series values labels (#42803)
+adam-james,adam-james-v,2024-05-31 04:52:24+00:00,"Multiple Measures Requires Additional Header Row in Pivot Exports (#43322)
+
+* Multiple Measures Requires Additional Header Row in Pivot Exports
+
+Mulitple measures can be set in our pivots. We indicate these properly in the fronted with a header row that shows
+which measure is reprsented in that particular column.
+
+The header builder fn in the pivot export post processing didn't handle this case, but after this PR, it correctly
+adds the final header when necessary.
+
+* Fix up header tests
+
+* Remove comment form; the tests are derived from that work already"
+Sloan Sparger,sloansparger,2024-05-31 06:21:03+00:00,Improve haveDashboardCardsChanged util permformance (#43422)
+metamben,metamben,2024-05-31 06:35:40+00:00,"Remove redundant field from select (#43396)
+
+This is just removing a duplicate field from a select clause."
+Phoomparin Mano,heypoom,2024-05-31 12:55:07+00:00,"Update the SDK docs to point to v1.50.0-RC1 and add note on height customization (#43383)
+
+* update jar and docker version in sdk readme
+
+* add notes on customizing the component height"
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-31 16:04:44+00:00,Add SDK changelog (#43433)
+Nicolò Pretto,npretto,2024-05-31 17:45:04+00:00,"PublicDashboard -> PublicOrEmbeddedDashboard (#43302)
+
+* PublicDashboard -> PublicOrEmbeddedDashboard
+
+* file renames and some fixes for PublicOrEmbeddedDashboard
+
+* PublicQuestion -> PublicOrEmbeddedQuestion (file renames)
+
+* PublicDashboard -> PublicOrEmbeddedDashboard
+
+* isPublic prop -> isPublicOrEmbedded in Dashboard and Dashcard"
+Cam Saul,camsaul,2024-05-31 18:26:24+00:00,Rework Kondo `defendpoint` custom macro to be a custom hook instead (#43411)
+Braden Shepherdson,bshepherdson,2024-05-31 18:43:19+00:00,"[QP] Drop last stage aggregations for questions in chain filtering (#43274)
+
+Models are treated as opaque here, but for a saved question we expose
+filters on the query before its final aggregation step.
+
+This drops the aggregation clauses and gets the possible values for the
+column of interest.
+
+Fixes #43154."
+metamben,metamben,2024-05-31 18:45:22+00:00,"Support string operations on postgres UUIDs (#43417)
+
+Fixes #40176."
+Alexander Polyankin,ranquild,2024-05-31 20:26:44+00:00,Move loading of linked targets metadata to the BE (#43380)
+Uladzimir Havenchyk,uladzimirdev,2024-05-31 20:50:48+00:00,Optimize imports from collection (#43241)
+Oisin Coveney,oisincoveney,2024-05-31 21:11:17+00:00,#41973 Improvements + Convert PublicQuestion to TS (#43361)
+Kamil Mielnik,kamilmielnik,2024-05-31 21:44:54+00:00,"Fix unit tests running multiple times in watch mode (#43445)
+
+* Fix unit tests running multiple times in watch mode
+
+* Ignore even more"
+Romeo Van Snick,romeovs,2024-05-31 21:49:21+00:00,"Show the columns for the correct stage when using combine/extract in the presence of an aggregation (#43226)
+
+* Do not use asReturned to determine columns for extractions and combine columns
+
+* Add reproduction for #43226 for combine columns
+
+* Add reproduction for #43226 for extract columns
+
+* Remove commented out code
+
+* Only render extraction shortcut when there are extractions
+
+* Only render combination shortcut when there are combinations
+
+* Use hasCombinations from CombineColumns
+
+* Add hasExtractions from ExtractColumn
+
+* Use appendStageIfAggregated over Lib.asReturned
+
+* Only show combine column shortcut when there are two or more columns to be combined
+
+* Lift appendStageIfAggregated to top-level drill
+
+* Add test for extraction on table with just breakout
+
+* Add test for combinations on table with just breakouts
+
+* Disable the 2-column requirement for combinations
+
+* Remove Lib.asReturned in appendStageIfAggregated
+
+* Remove + 1 to stageIndex in appendStageIfAggregated
+
+* Check for empty breakouts too in as-returned
+
+* Switch back to Lib.asReturned
+
+* Fix test for combine column on breakouts
+
+* Reference the correct query and stageIndex
+
+* add CLJS unit tests for as-returned with only aggs, breakouts
+
+---------
+
+Co-authored-by: Braden Shepherdson <braden@metabase.com>"
+Noah Moss,noahmoss,2024-05-31 21:50:01+00:00,Bump nippy to 3.4.2 (#43444)
+Nick Fitzpatrick,npfitz,2024-05-31 21:56:05+00:00,"React 18 (#41975)
+
+* initial commit with most types sorted
+
+* admin, binning, collections, custom-column and dashboard-cards suites
+
+* Filters, Joins, Metrics, Models, Native and Native filters suites
+
+* rest of e2e specs
+
+* filters, actions, onboarding and custom column will hopfully be green?
+
+* fixing static viz, brush filtering, login redirecting, and a few other tests
+
+* types green
+
+* linter green
+
+* hopefully fixes filter tests
+
+* I don't often cry, but when I do it's because of filter-types
+
+* hopfully sorted the last test that's failing CI
+
+* PR Feedback
+
+* yarn prettier
+
+* React 18 Upgrade - Unit Tests (#41577)
+
+* fixes for most unit tests to work with react 18 + upgraded rtl to v15
+
+* fixes all unit tests locally
+
+* fixes from rebasing
+
+* linter shames me
+
+* fix flake in maps.cy.spec.js
+
+---------
+
+Co-authored-by: Sloan Sparger <sloansparger@users.noreply.github.com>
+Co-authored-by: Sloan Sparger <sloansparger@gmail.com>"
+Emmad Usmani,EmmadUsmani,2024-05-31 21:58:17+00:00,remove accidental comment from scatterplot model (#43423)
+Mahatthana (Kelvin) Nomsawadi,WiNloSt,2024-05-31 22:03:06+00:00,"ci(sdk): Autogenerate changelog on build (#43364)
+
+* Auto tag embedding team for PR review + dry run npm publish
+
+* Install changelog generation package
+
+* Add the initial changelog
+
+* feat(sdk): This is an empty commit. For testing purposes.
+
+* Update SDk build script to include changelog
+
+* Check if a tag exists
+
+* Ensure changelog is in the released package
+
+* Fix workflow
+
+* Remove unnecessary step
+
+* Ensure we can have access to release utils script when checking out master
+
+* Fix the step to create a PR updating readme and changelog
+
+* Fix changelog generation
+
+* Fix couldn't download changelog
+
+* Clean up steps"
+Kamil Mielnik,kamilmielnik,2024-05-31 22:16:10+00:00,"Repro #37380 - Users with no self-service access may update pivot tables and leave them in a non-working state (#43437)
+
+* Fix crash and remove redundant casting
+
+* Add repro for metabase#37380
+
+* Be extra-safe with an empty array"
+Uladzimir Havenchyk,uladzimirdev,2024-05-31 22:33:28+00:00,"Avoid unnecessary re-renderings in dashcards (#43323)
+
+* Avoid unnecessary re-renderings in dashcards
+
+* replace useCallback with useMemo"
+Oisin Coveney,oisincoveney,2024-05-31 23:12:28+00:00,"fix(sdk): Add Static Dashboards to README (#43392)
+
+* fix(sdk): add Static Dashboards to README
+
+* Add more clarification comments for API
+
+* Clarify dashboard ID type
+
+* Prevent crashing SDK static dashboard if not provided optional values
+
+* Document fallback behavior for `font`
+
+---------
+
+Co-authored-by: Mahatthana Nomsawadi <mahatthana.n@gmail.com>"
+Ryan Laurie,iethree,2024-05-31 23:30:58+00:00,"Add Advanced Cache Upsell (#43099)
+
+* add hook to check token features
+
+* add cache upsell to performance page
+
+* upsell cards are white
+
+* fix rebase"
+Uladzimir Havenchyk,uladzimirdev,2024-05-31 23:58:12+00:00,"Optimize dashcard rendering in edit mode (#43431)
+
+* Avoid unnecessary re-renderings in dashcards
+
+* replace useCallback with useMemo
+
+* Optimize dashcard rendering in edit mode"
